@@ -1,0 +1,25 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+    
+	<nav class="navbar navbar-expand-lg navbar-light bg-light" style="text-align: center;padding-bottom: 12px;padding-top: 35px;">
+        <div class="container-fluid" style="display: inline">
+            <a class="navbar-brand" href="/">Jisolbin</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor03"
+                    aria-controls="navbarColor03" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <br>
+
+            <div class="collapse navbar-collapse" id="navbarColor03" style="text-align: center">
+                <ul class="navbar-nav me-auto" style="margin: 0 auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/frontAssignment/index.jsp">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/frontAssignment/board/boardList.jsp">Board</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
