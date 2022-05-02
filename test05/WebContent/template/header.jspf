@@ -1,0 +1,11 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<table width="800" align="center" bgcolor="white">
+	<tr>
+		<td bgcolor="lightgray" align="center">
+		<a href="./index.jsp"  style="text-decoration:none; color:black">[HOME]</a>
+		<a href="./list.jsp"  style="text-decoration:none; color:black">[LIST]</a>
+		</td>
+	</tr>
+	<tr>
+		<td>
