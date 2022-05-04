@@ -15,7 +15,7 @@
 	String sql = "delete from board where boardIdx="+boardIdx;
 
 	String driver = "com.mysql.cj.jdbc.Driver";
-	String url = "jdbc:mysql://localhost:3306/frontassignment";
+	String url = "jdbc:mysql://localhost:3306/frontassignment?characterEncoding=UTF-8&autoReconnect=true";
 	String user = "user01";
 	String password = "1234";
 		

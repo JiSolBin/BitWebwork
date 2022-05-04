@@ -10,24 +10,39 @@
           integrity="sha384-9+PGKSqjRdkeAU7Eu4nkJU8RFaH8ace8HGXnkiKMP9I9Te0GJ4/km3L1Z8tXigpG" crossorigin="anonymous">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+    
+	<style>
+       	.div_tb{
+    		max-width:900px;
+    		margin:30px auto;
+    	}
+    	
+    	#p1{
+    		 color: black;
+    	}
+    	
+    	.txt1{
+    		width: 20cm;
+    	}
+    </style>
 </head>
 <body>
 	<%@ include file="/template/header.jspf" %>
 	
 	<br>
 
-    <div style="max-width:900px; margin:30px auto;">
-        <p class="lead" style="color: black"> Write a post </p>
+    <div class="div_tb">
+        <p class="lead" id="p1"> Write a post </p>
         <form id="frm" name="frm" action="insert.jsp" enctype="multipart/form-data">
             <table class="board_detail">
                 <tr>
                     <label class="col-form-label mt-4" for="title">Title</label>
-                    <input type="text" class="form-control" id="title" name="title" style="width: 20cm">
+                    <input type="text" class="form-control txt1" id="title" name="title">
                 </tr>
                 <tr>
                     <label class="col-form-label mt-4" for="content">Content</label>
                     <td colspan="2">
-                        <textarea id="content" name="content" class="form-control" rows="5" style="width: 20cm"></textarea>
+                        <textarea id="content" name="content" class="form-control txt1" rows="5"></textarea>
                     </td>
                 </tr>
             </table>

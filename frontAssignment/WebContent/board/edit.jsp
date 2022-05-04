@@ -11,15 +11,16 @@
 </head>
 <body>
 <%
+	request.setCharacterEncoding("UTF-8");
+	
 	int boardIdx = Integer.parseInt(request.getParameter("boardIdx"));
 	String title = request.getParameter("title");
 	String content = request.getParameter("content");
 
 	String sql = "update board set title='"+title+"', content='"+content+"' where boardIdx="+boardIdx;
-	System.out.println(sql);
 
 	String driver = "com.mysql.cj.jdbc.Driver";
-	String url = "jdbc:mysql://localhost:3306/frontassignment";
+	String url = "jdbc:mysql://localhost:3306/frontassignment?characterEncoding=UTF-8&autoReconnect=true";
 	String user = "user01";
 	String password = "1234";
 		
@@ -37,8 +38,6 @@
 		if(stmt!=null) stmt.close();
 		if(conn!=null) conn.close();
 	}
-	
-	//response.sendRedirect("./boardDetail.jsp?boardIdx="+boardIdx);
 	
 	PrintWriter pw = response.getWriter();
 	pw.println("<script> history.back(); history.back(); </script>");

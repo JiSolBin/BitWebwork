@@ -12,13 +12,40 @@
           integrity="sha384-9+PGKSqjRdkeAU7Eu4nkJU8RFaH8ace8HGXnkiKMP9I9Te0GJ4/km3L1Z8tXigpG" crossorigin="anonymous">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+    
+    <style>
+    	.btn_mine{
+    		width: 2cm;
+    		height: 1cm;
+    		padding: 0px;
+    	}
+    	
+    	.btn_mine2{
+    		width: 1.5cm;
+    		height: 0.9cm;
+    		padding: 0px;
+    	}
+    	
+    	.ipt{
+    		height: 0.9cm;
+    	}
+    	
+    	.div_tb{
+    		max-width:900px;
+    		margin:30px auto;
+    	}
+    	
+    	.p_in_form{
+    		text-align: center;
+    	}
+    </style>
 </head>
 <body>
 	<%@ include file="/template/header.jspf" %>
 	
 	<br>
 	
-    <div style="max-width:900px; margin:30px auto;">
+    <div class="div_tb">
         <table class="table table-hover">
             <colgroup>
                 <col width="20%"/>
@@ -36,9 +63,8 @@
             	<%
             		String sql = "";
             		String sql2 = "";
-            	
 	            	String driver = "com.mysql.cj.jdbc.Driver";
-		     		String url = "jdbc:mysql://localhost:3306/frontassignment";
+		     		String url = "jdbc:mysql://localhost:3306/frontassignment?characterEncoding=UTF-8&autoReconnect=true";
 		     		String user = "user01";
 		     		String password = "1234";
 		     		
@@ -90,18 +116,28 @@
 	        			}
 	         		
 	         			rs = stmt.executeQuery(sql);
+	         			
+	         			// 페이징
 	         			rs2 = stmt2.executeQuery(sql2);
 	         			
 	         			while(rs2.next()){
 	         				cnt = rs2.getInt(1);
 	         			}
 	         			
+	        			int pageNum = cnt/10;
+	        			if(cnt%10!=0) ++pageNum;
+	        			
+	        			String q = "";
+	        			if(request.getParameter("sel")!=null){
+	        				q = "&sel=" + request.getParameter("sel") + "&input=" + request.getParameter("input");
+	        			}
+	         			
 						while(rs.next()){
 						%>
 			         		<tr class="table-secondary">
-			                    <td><a href="./boardDetail.jsp?boardIdx=<%=rs.getInt(1)%>"><%=rs.getString(1)%></a></td>
+			                    <td><%=rs.getString(1)%></td>
 			                    <td class="title"><a href="./boardDetail.jsp?boardIdx=<%=rs.getInt(1)%>"><%=rs.getString(2)%></a></td>
-			                    <td><a href="./boardDetail.jsp?boardIdx=<%=rs.getInt(1)%>"><%=rs.getString(3)%></a></td>
+			                    <td><%=rs.getString(3)%></td>
 			                </tr>
 		         		<%
 		         		}
@@ -109,41 +145,29 @@
                 
             </tbody>
         </table>
-        
-        <%
-			// 페이징
-			int pageNum = cnt/10;
-			if(cnt%10!=0) ++pageNum;
 			
-			String q = "";
-			if(request.getParameter("sel")!=null){
-				q = "&sel=" + request.getParameter("sel") + "&input=" + request.getParameter("input");  
-			}
-		%>
-			<p align="center">
-		<%
+		<p align="center">
+			<%
 			for(int i=0; i<pageNum; ++i){
-		%>
-			<!-- 제대로 페이징 처리 후, 다른 파라미터 확인하고 함께 넘겨야 함 -->
-			<a href="./boardList.jsp?choice=<%=i+q%>" style="text-decoration:none; color:black" >
-				<%=i+1 %>&nbsp;&nbsp;&nbsp;
-			</a>
-		<%		
+			%>
+				<a href="./boardList.jsp?choice=<%=i+q%>" style="text-decoration:none; color:black" >
+					<%=i+1 %>&nbsp;&nbsp;&nbsp;
+				</a>
+			<%		
 			}
-		
-		%>
-			</p>
+			%>
+		</p>
 			
-			<form>
-				<p align="center">
-					<select name="sel">
-						<option value="title"> title </option>
-						<option value="content"> content </option>
-					</select>
-					<input type="text" name="input">
-					<input type="submit" value="search">
-				</p>
-			</form>
+		<form>
+			<p class="p_in_form">
+				<select name="sel" class="ipt">
+					<option value="title"> title </option>
+					<option value="content"> content </option>
+				</select>
+				<input type="text" name="input" class="ipt">
+				<input type="submit" value="검색" class="btn btn-outline-primary btn_mine2">
+			</p>
+		</form>
 		<%
 			
 		}finally{
@@ -154,7 +178,7 @@
 		%>
 
         <a href="./boardWrite.jsp">
-            <button type="button" class="btn btn-outline-primary" style="width: 2cm; height: 1cm; padding: 0px">글쓰기</button>
+            <button type="button" class="btn btn-outline-primary btn_mine">글쓰기</button>
         </a>
     </div>
 </body>

@@ -12,15 +12,43 @@
           integrity="sha384-9+PGKSqjRdkeAU7Eu4nkJU8RFaH8ace8HGXnkiKMP9I9Te0GJ4/km3L1Z8tXigpG" crossorigin="anonymous">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+    
+    <style>
+       	.div_tb{
+    		max-width:900px;
+    		margin:30px auto;
+    	}
+    	
+    	#th1, #th2{
+    		padding: 10px 20px;
+    	}
+    	
+    	#td1, #td2{
+    		padding: 10px;
+    	}
+    	
+    	#th3{
+    		padding: 30px 20px;
+    	}
+    	
+    	#td3{
+    	 	padding-top: 20px;
+    	 	padding-left: 5px;
+    	}
+    	
+    	.title{
+    		width: 19.2cm;
+    	}
+    </style>
 </head>
 <body>
 	<%@ include file="/template/header.jspf" %>
 	
 	<br>
 
-    <div style="max-width:900px; margin:30px auto;">
+    <div class="div_tb">
         <form id="frm" method="post">
-            <table class="table table-hover">
+            <table class="table table-hover detailTable">
                 <colgroup>
                     <col width="15%"/>
                     <col width="35%"/>
@@ -33,7 +61,7 @@
             		String sql = "select boardIdx, title, content, date_format(createDate, '%Y-%m-%d') from board where boardIdx=" + boardIdx;
             	
 	            	String driver = "com.mysql.cj.jdbc.Driver";
-		     		String url = "jdbc:mysql://localhost:3306/frontassignment";
+	            	String url = "jdbc:mysql://localhost:3306/frontassignment?characterEncoding=UTF-8&autoReconnect=true";
 		     		String user = "user01";
 		     		String password = "1234";
 		     		
@@ -50,18 +78,18 @@
 	         			
 						while(rs.next()){
 						%>
-			                <tr style="height: 1cm">
-		                        <th scope="row" style="padding: 10px 20px">Index</th>
-		                        <td style="padding: 10px"><%=rs.getString(1)%></td>
+			                <tr>
+		                        <th id="th1">Index</th>
+		                        <td id="td1"><%=rs.getString(1)%></td>
 		                    </tr>
-		                    <tr style="height: 1cm">
-		                        <th scope="row" style="padding: 10px 20px">Date</th>
-		                        <td style="padding: 10px"><%=rs.getString(4)%></td>
+		                    <tr>
+		                        <th id="th2">Date</th>
+		                        <td id="td2"><%=rs.getString(4)%></td>
 		                    </tr>
-		                    <tr style="height: 2cm">
-		                        <th scope="row" style="padding: 30px 20px">Title</th>
-		                        <td colspan="3" style="padding-top: 20px; padding-left:5px">
-		                            <input type="text" class="form-control" id="title" name="title" value="<%=rs.getString(2)%>" style="width: 19.2cm"/>
+		                    <tr>
+		                        <th scope="row" id="th3">Title</th>
+		                        <td colspan="3" id="td3">
+		                            <input type="text" class="form-control title" id="title" name="title" value="<%=rs.getString(2)%>"/>
 		                        </td>
 		                    </tr>
 		                    <tr>
@@ -93,9 +121,10 @@
     <script type="text/javascript">
         $(document).ready(function(){
             var boardIdx = $("#boardIdx").val();
+            var q = '?';
 
             $("#list").on("click", function(){
-                history.back();
+            	history.back();
             });
 
             $("#edit").on("click", function(){
