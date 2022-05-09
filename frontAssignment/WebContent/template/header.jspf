@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     
-	<nav class="navbar navbar-expand-lg navbar-light bg-light" style="text-align: center;padding-bottom: 12px;padding-top: 35px;">
+	<nav class="navbar navbar-expand-lg navbar-light bg-light navBar" style="text-align: center;padding-bottom: 12px;padding-top: 35px;">
         <div class="container-fluid" style="display: inline">
             <a class="navbar-brand" href="/frontAssignment/index.jsp">Jisolbin</a>
 
@@ -19,3 +19,4 @@
             </div>
         </div>
     </nav>
+    <div class="marginDiv"></div>

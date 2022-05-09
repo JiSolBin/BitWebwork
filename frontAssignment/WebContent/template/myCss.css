@@ -1,8 +1,18 @@
 @charset "UTF-8";
 
 /* header */
+.navBar{
+	position: fixed;	
+	width: 100%;
+}
+
 .menuBar{
 	margin: 10px auto 20px auto;
+}
+
+.marginDiv{
+	height:50px;
+	margin-bottom: 100px;
 }
 
 
