@@ -13,36 +13,11 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
     
-    <style>
-       	.div_tb{
-    		max-width:900px;
-    		margin:30px auto;
-    	}
-    	
-    	#th1, #th2{
-    		padding: 10px 20px;
-    	}
-    	
-    	#td1, #td2{
-    		padding: 10px;
-    	}
-    	
-    	#th3{
-    		padding: 30px 20px;
-    	}
-    	
-    	#td3{
-    	 	padding-top: 20px;
-    	 	padding-left: 5px;
-    	}
-    	
-    	.title{
-    		width: 19.2cm;
-    	}
-    </style>
+    <link rel="stylesheet" type="text/css" href="../template/myCss.css">
 </head>
 <body>
-	<%@ include file="/template/header.jspf" %>
+	<% String myPath=".."; %>
+	<%@ include file="../template/header.jspf" %>
 	
 	<br>
 

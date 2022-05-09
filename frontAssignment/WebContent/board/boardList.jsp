@@ -13,35 +13,11 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
     
-    <style>
-    	.btn_mine{
-    		width: 2cm;
-    		height: 1cm;
-    		padding: 0px;
-    	}
-    	
-    	.btn_mine2{
-    		width: 1.5cm;
-    		height: 0.9cm;
-    		padding: 0px;
-    	}
-    	
-    	.ipt{
-    		height: 0.9cm;
-    	}
-    	
-    	.div_tb{
-    		max-width:900px;
-    		margin:30px auto;
-    	}
-    	
-    	.p_in_form{
-    		text-align: center;
-    	}
-    </style>
+    <link rel="stylesheet" type="text/css" href="../template/myCss.css">
 </head>
 <body>
-	<%@ include file="/template/header.jspf" %>
+	<% String myPath=".."; %>
+	<%@ include file="../template/header.jspf" %>
 	
 	<br>
 	

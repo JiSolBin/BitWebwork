@@ -10,8 +10,11 @@
           integrity="sha384-9+PGKSqjRdkeAU7Eu4nkJU8RFaH8ace8HGXnkiKMP9I9Te0GJ4/km3L1Z8tXigpG" crossorigin="anonymous">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+    
+    <link rel="stylesheet" type="text/css" href="./template/myCss.css">
 </head>
 <body>
+	<% String myPath="."; %>
 	<%@ include file="template/header.jspf" %>
 </body>
 </html>
