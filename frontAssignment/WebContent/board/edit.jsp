@@ -39,8 +39,9 @@
 		if(conn!=null) conn.close();
 	}
 	
-	PrintWriter pw = response.getWriter();
-	pw.println("<script> history.back(); history.back(); </script>");
+	// PrintWriter pw = response.getWriter();
+	// pw.println("<script> history.back(); history.back(); </script>");
+	response.sendRedirect("./boardList.jsp");
 %>
 </body>
 </html>
