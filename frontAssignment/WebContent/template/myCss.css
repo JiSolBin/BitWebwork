@@ -7,11 +7,11 @@
 	
 	text-align: center;
 	padding-bottom: 12px;
-	padding-top: 35px;"
+	padding-top: 20px;
 }
 
 .menuBar{
-	margin: 10px auto 20px auto;
+	margin: 10px auto;
 }
 
 .marginDiv{
@@ -20,7 +20,7 @@
 }
 
 .logoImg{
-	width:70px;
+	width:60px;
 }
 
 
@@ -87,3 +87,10 @@
 .txt1{
 	width: 20cm;
 }	
+
+
+/* portfolio */
+.div_slide{
+	max-width:650px;
+	margin:30px auto;
+}
