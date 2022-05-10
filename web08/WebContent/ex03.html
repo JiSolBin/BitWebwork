@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script src="js/jquery-1.12.4.min.js"></script>
+    <script src="js/jquery.bxslider.min.js"></script>
+    <script>
+        $(function(){
+            var div = $('#target>div').bxSlider({
+                minSlides:1,
+                maxSlides:1,
+                moveSlides:1,
+                slideWidth:600,
+                // next,prev 버튼
+                controls:false,
+                // 밑에 페이지 버튼(?)
+                pager:false
+                // auto:true
+            });
+
+            $('#target>ul img').height(130);
+
+            $('#target>ul').bxSlider({
+                minSlides:3,
+                maxSlides:3,
+                moveSlides:1,
+                slideWidth:200,
+                auto:true,
+
+                //미스매치 막기 위해 위 div 제어
+                onSliderLoad:function(a){
+                    div.goToSlide(a);
+                },
+                onSlideNext:function(a,b,c){
+                    div.goToSlide(c);
+                },
+                onSlidePrev:function(a,b,c){
+                    div.goToSlide(c);
+                }
+            });
+        });
+    </script>
+</head>
+<body>
+    <h1>둘 다 auto:true라면 안 좋은 패턴 코드</h1>
+    <h2>미스매치 가능성 높음. 둘 중 하나 auto false하고 변수로 만들어 제어 해야 함</h2>
+    <h2>웹에선 interval 하나로 모두를 제어하는 것이 좋다</h2>
+    <div id="target">
+        <div>
+            <div><img src="https://dummyimage.com/600x400/000/fff&text=img01"></div>
+            <div><img src="https://dummyimage.com/600x400/000/fff&text=img02"></div>
+            <div><img src="https://dummyimage.com/600x400/000/fff&text=img03"></div>
+            <div><img src="https://dummyimage.com/600x400/000/fff&text=img04"></div>
+            <div><img src="https://dummyimage.com/600x400/000/fff&text=img05"></div>
+            <div><img src="https://dummyimage.com/600x400/000/fff&text=img06"></div>
+        </div>
+        <ul id="bx">
+            <li><img src="https://dummyimage.com/600x400/000/fff&text=img01" alt=""></li>
+            <li><img src="https://dummyimage.com/600x400/000/fff&text=img02" alt=""></li>
+            <li><img src="https://dummyimage.com/600x400/000/fff&text=img03" alt=""></li>
+            <li><img src="https://dummyimage.com/600x400/000/fff&text=img04" alt=""></li>
+            <li><img src="https://dummyimage.com/600x400/000/fff&text=img05" alt=""></li>
+            <li><img src="https://dummyimage.com/600x400/000/fff&text=img06" alt=""></li>
+        </ul>
+    </div>
+</body>
+</html>

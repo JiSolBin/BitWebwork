@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script src="js/jquery-1.12.4.min.js"></script>
+    <script>
+        $(function(){
+            // html
+            // 가져와서 화면에 뿌림 -> Deprecated?
+            // $('#target').load('ex07.jsp?name=admin', function(a,b,c){
+            //     // a : 가져올 내용 html
+            //     // b : 성공, 실패 여부
+            //     // c : xhr
+            // });
+
+            // get 방식으로 호출만 함
+            // jQuery.get('ex07.jsp?name=getget', function(a,b,c){
+            //     // 매개변수는 위와 같음
+            //     $('#target').html($('#target').html(a).find('h2'));
+            // });
+
+
+            // xml
+            // $.get('ex08.xml', function(a,b,c){
+            //     // a : 파싱한 파일 내용을 object로 가져옴
+            //     $(a).find('row').each(function(idx, ele){
+            //         $('#target').append('<div>'+$(ele).children().last().text()+'</div>');
+            //     });
+            // });
+
+
+            // json
+            // $.get('ex09.json', function(a,b,c){
+            //     // a : 파싱한 파일 내용을 object로
+            //     $(a.root).each(function(idx,ele){
+            //         $('<div/>').text(ele.key2).appendTo('#target');
+            //     });
+            // });
+
+            // getJSON 사용해도 출력 똑같음
+            // json 파일이 아니어도 json 형식으로 받아옴 (문자열->json parse)
+            // $.getJSON('ex09.json', function(a,b,c){
+            //     // a : 파싱한 파일 내용을 object로
+            //     $(a.root).each(function(idx,ele){
+            //         $('<div/>').text(ele.key2).appendTo('#target');
+            //     });
+            // });
+
+            // jsp 파일도 받을 수 있음
+            // getJSON은 무조건 json, 이건 내가 전환 가능
+            // post 방식도 가능
+            // $.post('ex09.jsp', function(a,b,c){
+            //     // a : 파싱한 파일 내용을 object로
+            //     $(a.root).each(function(idx,ele){
+            //         $('<div/>').text(ele.method).appendTo('#target');
+            //     });
+            // }, 'json');
+
+            var callback1 = function(msg){
+                $.ajax({
+                    url: 'ex09.jsp',
+                    type: 'post',
+                    data: 'name='+msg,
+                    dataType: 'json',
+                    error: function(xhr, statusMsg, errMsg){
+                        console.log(statusMsg);
+                        console.log(errMsg);
+                        alert('비동기통신 실패');
+                    },
+                    success: function(data){
+                        console.log('success', typeof data, data.root);
+                        data.root.forEach(function(ele, idx){
+                            $('<div/>').text(ele.key2).appendTo('#target');
+                        });
+                    }
+                });
+            };
+            $('input').on('change', function(){
+                var msg = this.value;
+                callback1(msg);
+            });
+        });
+    </script>
+</head>
+<body>
+    <h1>ajax</h1>
+    <input type="text">
+    <div id="target"></div>
+</body>
+</html>

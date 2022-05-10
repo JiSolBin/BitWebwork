@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script src="js/jquery-1.12.4.min.js"></script>
+    <script>
+
+        var arr = ['item1', 'item2', 'item3', 'item4'];
+
+        $(function(){
+            // 복사해서 밑에 붙이기
+            // $(document.querySelector('ul')).clone().insertAfter('ul');
+
+            // 자바스크립트
+            arr.forEach(function(ele,idx){
+                console.log(ele,idx,this);
+                // this = window
+            });
+
+            console.log('---------------------');
+
+            //jQuery
+            $(arr).each(function(idx,ele){
+                console.log(idx,ele,this,ele==this);
+                // this = 자신(item)
+            });
+
+            console.log('---------------------');
+
+            $('li').each(function(idx,ele){
+                console.log(ele, this);
+                // $(this).html('<img src="">')등을 사용할 수 있음
+            });
+        });
+    </script>
+</head>
+<body>
+    <ul>
+        <li>item1</li>
+        <li>item2</li>
+        <li>item3</li>
+        <li>item4</li>
+        <li>item5</li>
+    </ul>
+</body>
+</html>
