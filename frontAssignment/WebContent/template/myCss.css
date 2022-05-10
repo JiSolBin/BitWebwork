@@ -4,6 +4,10 @@
 .navBar{
 	position: fixed;	
 	width: 100%;
+	
+	text-align: center;
+	padding-bottom: 12px;
+	padding-top: 35px;"
 }
 
 .menuBar{
@@ -13,6 +17,10 @@
 .marginDiv{
 	height:50px;
 	margin-bottom: 100px;
+}
+
+.logoImg{
+	width:70px;
 }
 
 

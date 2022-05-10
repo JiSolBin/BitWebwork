@@ -1,17 +1,28 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     
-	<nav class="navbar navbar-expand-lg navbar-light bg-light navBar" style="text-align: center;padding-bottom: 12px;padding-top: 35px;">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootswatch@4.5.2/dist/lux/bootstrap.min.css"
+          integrity="sha384-9+PGKSqjRdkeAU7Eu4nkJU8RFaH8ace8HGXnkiKMP9I9Te0GJ4/km3L1Z8tXigpG" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="<%=myPath %>/template/myCss.css">
+    
+	<nav class="navbar navbar-expand-lg navbar-light bg-light navBar">
         <div class="container-fluid" style="display: inline">
-            <a class="navbar-brand" href="/frontAssignment/index.jsp">Jisolbin</a>
+            <a class="navbar-brand" href="<%=myPath %>/index.jsp"><img class="logoImg" src="<%=myPath %>/imgs/computer.png"></a>
 
             <br>
 
-            <div class="navbar-collapse" id="navbarColor03" style="text-align: center">
+            <div class="navbar-collapse" id="navbarColor03">
                 <ul class="navbar-nav me-auto menuBar">
                     <li class="nav-item">
                         <a class="nav-link" href="<%=myPath %>/index.jsp">Home</a>
                     </li>
+                    
+                    <li class="nav-item">
+                        <a class="nav-link" href="<%=myPath %>/index.jsp">Portfolio</a>
+                    </li>
+                    
                     <li class="nav-item">
                         <a class="nav-link" href="<%=myPath %>/board/boardList.jsp">Board</a>
                     </li>
