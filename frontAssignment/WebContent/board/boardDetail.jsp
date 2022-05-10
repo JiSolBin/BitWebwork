@@ -48,11 +48,11 @@
 						%>
 			                <tr>
 		                        <th id="th1">Index</th>
-		                        <td id="td1"><%=rs.getString(1)%></td>
+		                        <td id="td1" colspan="3"><%=rs.getString(1)%></td>
 		                    </tr>
 		                    <tr>
 		                        <th id="th2">Date</th>
-		                        <td id="td2"><%=rs.getString(4)%></td>
+		                        <td id="td2" colspan="3"><%=rs.getString(4)%></td>
 		                    </tr>
 		                    <tr>
 		                        <th scope="row" id="th3">Title</th>
