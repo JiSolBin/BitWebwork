@@ -150,5 +150,7 @@
             <button type="button" class="btn btn-outline-primary btn_mine">글쓰기</button>
         </a>
     </div>
+    
+    <%@ include file="../template/footer.jspf" %>
 </body>
 </html>

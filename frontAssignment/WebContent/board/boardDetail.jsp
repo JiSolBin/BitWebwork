@@ -108,5 +108,7 @@
             });
         });
     </script>
+    
+	<%@ include file="../template/footer.jspf" %>
 </body>
 </html>

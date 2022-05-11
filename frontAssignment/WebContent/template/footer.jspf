@@ -1,0 +1,19 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+
+<style>
+	.foot{
+		width: 100%;
+		text-align: center;
+		padding-top: 100px;
+		padding-bottom: 30px;
+	}
+	
+	#gitImg{
+		width: 30px;
+	}
+</style>
+
+<div class="foot">
+	<a href="https://github.com/JiSolBin"><img id="gitImg" src="https://simpleicons.org/icons/github.svg"></a>
+</div>

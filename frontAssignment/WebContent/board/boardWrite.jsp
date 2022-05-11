@@ -31,5 +31,7 @@
             <input type="submit" id="submit" value="저장" class="btn btn-outline-dark">
         </form>
     </div>
+    
+    <%@ include file="../template/footer.jspf" %>
 </body>
 </html>
