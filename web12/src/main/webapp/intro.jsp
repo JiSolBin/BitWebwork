@@ -82,7 +82,7 @@
 		<div class="row">
 			<div class="grid12">
 				<!-- content start -->
-				<img alt="" src="https://www.bitacademy.com/img/main_bn_0503.png">
+				<img alt="" src="https://www.bitacademy.com/img/main_bn_0414_2.png">
 				<!-- content end -->
 			</div>
 		</div>
