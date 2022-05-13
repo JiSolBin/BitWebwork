@@ -39,6 +39,14 @@ nav>ul>li>a{
 	font-size: 20pt;
 	text-align: center;
 }
+nav>span{
+	margin-top: 10px;
+	margin-right: 10px;
+	display: block;
+	font-size: 20px;
+	font-weight: bold;
+	float: right;
+}
 
 .row img{
 	width: 100%;
