@@ -173,7 +173,7 @@ public List<EmpDto> getList() throws SQLException{
 				<div>
 					<a href="">
 						<span><%=bean.getEmpno() %></span>
-						<span><%=bean.getEname().length()>3?bean.getEname().substring(0,3)+"..":bean.getEname() %></span>
+						<span><%=bean.getEname().length()>10?bean.getEname().substring(0,10)+"..":bean.getEname() %></span>
 						<span><%=bean.getSal() %></span>
 					</a>
 				</div>
