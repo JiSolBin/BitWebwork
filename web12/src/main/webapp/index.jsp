@@ -28,6 +28,10 @@
 			<div class="grid12">
 				<!-- content start -->
 				<img alt="" src="https://www.bitacademy.com/img/main_bn_0503.png">
+				
+				<jsp:useBean id="obj" class="com.bit.util.EmpDto" scope="request"></jsp:useBean>
+				<p><jsp:getProperty property="ename" name="obj"/></p>
+				
 				<!-- content end -->
 			</div>
 		</div>
