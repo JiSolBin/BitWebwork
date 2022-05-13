@@ -7,7 +7,7 @@
 	<title>Insert title here</title>
 
 	<link rel="stylesheet" type="text/css" href="../css/mygrid.css">
-	<script src="../js/jquery-1.12.4.min.js"><</script>
+	<script src="../js/jquery-1.12.4.min.js"></script>
 	
 	<style>
 		body{
@@ -106,10 +106,25 @@
 			text-decoration: none;
 			color: gray;
 			display: block;
+			margin: 20px;
 		}
 		.btn-primary{
 			color: white;
 			background-color: navy;
+		}
+		
+		.form-control{
+			margin: 0px auto;
+			width: 80%;
+		}
+		
+		.form-group{
+			margin-bottom: 50px;
+		}
+		.form-group>*{
+			display: block;
+			height: 50px;
+			width: 100%;
 		}
 	</style>
 	
@@ -117,40 +132,6 @@
 		
 	</script>
 </head>
-
-<%@page import="java.sql.*, com.bit.util.*, java.util.*" %>
-<%!
-Connection conn;
-Statement stmt;
-ResultSet rs;
-
-public List<EmpDto> getList() throws SQLException{
-	
-	String sql = "select * from emp order by empno";
-	List<EmpDto> list = new ArrayList<EmpDto>();
-	
-	try{
-		conn = DBServer.getConnection();
-		stmt = conn.createStatement();
-		rs = stmt.executeQuery(sql);
-		
-		while(rs.next()){
-			EmpDto bean = new EmpDto();
-			bean.setEmpno(rs.getInt("empno"));
-			bean.setEname(rs.getString("ename"));
-			bean.setSal(rs.getInt("sal"));
-			list.add(bean);		
-		}
-	}finally{
-		if(rs!=null) rs.close();
-		if(stmt!=null) stmt.close();
-		if(conn!=null) conn.close();
-	}
-	
-	return list;
-}
-%>
-
 
 <body>
 <nav>
@@ -167,19 +148,26 @@ public List<EmpDto> getList() throws SQLException{
 	<div class="row">
 		<div class="grid12">
 			<!-- content start -->
-			<h2>리스트 페이지</h2>
-			<div class="table">
-			<%for(EmpDto bean : getList()) {%>
-				<div>
-					<a href="">
-						<span><%=bean.getEmpno() %></span>
-						<span><%=bean.getEname().length()>3?bean.getEname().substring(0,3)+"..":bean.getEname() %></span>
-						<span><%=bean.getSal() %></span>
-					</a>
+			<h2>입력 페이지</h2>
+			<form class="form-control" method="post">
+				<div class="form-group">
+					<label for="empno">empno</label>
+					<input type="text" name="empno" id="empno" placeholder="사번을 입력">
 				</div>
-			<%} %>	
-			</div>
-			<p><a class="btn btn-primary" href="add.jsp">입력</a></p>
+				<div class="form-group">
+					<label for="ename">ename</label>
+					<input type="text" name="ename" id="ename" placeholder="이름을 입력">
+				</div>
+				<div class="form-group">
+					<label for="sal">sal</label>
+					<input type="text" name="sal" id="sal" placeholder="금액을 입력">
+				</div>
+				<div class="form-group">
+					<button class="btn btn-primary">입력</button>
+					<button class="btn" type="reset">취소</button>
+					<button class="btn" type="button">뒤로</button>
+				</div>
+			</form>
 			<!-- content end -->
 		</div>
 	</div>
