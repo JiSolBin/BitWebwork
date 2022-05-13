@@ -6,6 +6,40 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
     <link rel="stylesheet" type="text/css" href="<%=myPath %>/template/myCss.css">
+    <link href="https://fonts.googleapis.com/earlyaccess/jejugothic.css" rel="stylesheet">
+    <script type="text/javascript" src="<%=myPath %>/js/jquery-1.12.4.min.js"></script>
+    
+    <script>
+		$(function(){
+			$('<div class="menubtn" style="margin-top: 10px;"/>')
+				.append('<span class="navbar-toggler-icon"></span>')
+				.prependTo('nav>div')
+				.click(function(){
+					$('nav>div>div>ul>li').toggle();
+				})
+			;
+			
+			$(window).on('resize',function(){
+				if($('.navbar').width()<950){
+					$('.menubtn').show();
+					$('nav>div>div>ul>li').css('display', 'block').hide();
+				}else{
+					$('.menubtn').hide();
+					$('nav>div>div>ul>li').css('display', 'inline-block');
+				}
+			});
+		});
+
+		$(function(){
+			if($('.navbar').width()<950){
+				$('.menubtn').show();
+				$('nav>div>div>ul>li').css('display', 'block').hide();
+			}else{
+				$('.menubtn').hide();
+				$('nav>div>div>ul>li').css('display', 'inline-block');
+			}
+		});
+	</script>
     
 	<nav class="navbar navbar-expand-lg navbar-light bg-light navBar">
         <div class="container-fluid" style="display: inline">
@@ -14,7 +48,7 @@
             <br>
 
             <div class="navbar-collapse" id="navbarColor03">
-                <ul class="navbar-nav me-auto menuBar">
+                <ul class="navbar-nav me-auto menuBar" style="font-size: 11pt;">
                     <li class="nav-item">
                         <a class="nav-link" href="<%=myPath %>/index.jsp">Home</a>
                     </li>

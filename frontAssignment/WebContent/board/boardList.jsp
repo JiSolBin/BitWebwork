@@ -7,6 +7,13 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<title>Board</title>
+		
+	<style>
+		* {
+			font-family: 'Jeju Gothic', sans-serif;
+			font-size: 12pt;
+		}
+	</style>
 </head>
 <body>
 	<% String myPath=".."; %>

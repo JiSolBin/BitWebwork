@@ -5,6 +5,13 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<title>Write a post</title>
+		
+	<style>
+		* {
+			font-family: 'Jeju Gothic', sans-serif;
+			font-size: 11pt;
+		}
+	</style>
 </head>
 <body>
 	<% String myPath=".."; %>

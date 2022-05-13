@@ -7,6 +7,11 @@
 	<title>HOME</title>
 	
 	<style>
+		* {
+			font-family: 'Jeju Gothic', sans-serif;
+			font-size: 12pt;
+		}
+	
 		.aboutMe{
 			width: 40%;
 			margin: 0px auto;
@@ -16,27 +21,33 @@
 			font-size: 20px;
 			font-weight: bold;
 			margin-bottom: 8px;
+			color: rgb(30, 30, 30);
 		}
 		
 		.aboutMe_div{
 			margin-bottom: 50px;
 		}
-		
+	
 		.aboutMe_content{
 			color:black;
 			margin: 5px auto 5px 0px;
+			color: rgb(30, 30, 30);
 		}
 		
 		.aboutMe_year{
 			display: inline-block;
 			margin-top: 4px;
-			margin-right: 4px;
+			margin-right: 0px;
 			background-color: rgb(228, 228, 228);
-			padding: 2px 3px 2px 4px;
+			padding: 2px 5px 2px 5px;
 			color: orangered;
 			font-size: 12px;
 			font-weight: bold;
 			border-radius: 7px;
+		}
+		
+		.aboutMe_div>p>span{
+			margin-right: 7px;
 		}
 		
 		.half_td{
@@ -45,6 +56,10 @@
 		
 		.aboutMe_lastDiv{
 			height: 250px;
+		}
+		
+		.aboutMe_lastDiv:first-child>p>span{
+			margin-right: 7px;
 		}
 	</style>
 </head>

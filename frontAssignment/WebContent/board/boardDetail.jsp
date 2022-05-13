@@ -7,6 +7,13 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<title>Post</title>
+	
+	<style>
+		* {
+			font-family: 'Jeju Gothic', sans-serif;
+			font-size: 12pt;
+		}
+	</style>
 </head>
 <body>
 	<% String myPath=".."; %>
@@ -62,7 +69,7 @@
 		                    </tr>
 		                    <tr>
 		                        <td colspan="4">
-		                            <textarea id="content" name="content" class="form-control" rows="8"><%=rs.getString(3)%></textarea>
+		                            <textarea id="content" name="content" class="form-control" rows="17"><%=rs.getString(3)%></textarea>
 		                        </td>
 		                    </tr>
 		         		<%

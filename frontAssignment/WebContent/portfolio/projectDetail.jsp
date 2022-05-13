@@ -7,14 +7,14 @@
 	<title>Portfolio</title>
 	
     <style>
-		* {
+		*{
 			font-family: 'Jeju Gothic', sans-serif;
-			font-size: 11pt;
+			font-size: 12pt;
+			color: rgb(30, 30, 30);
 		}
 		
     	.div_slide{
     		position: relative;
-    		z-index: -1000;
     	}
     	
         #bx img{
@@ -37,7 +37,6 @@
             line-height: 40px;
             text-decoration: none;
             font-size: 50px;
-            font-weight: bold;
         }
         .bx-next{
             left: 550px;
@@ -49,8 +48,6 @@
         	font-size: 40pt;
         	text-align: center;
         	padding-top: 60px;
-        	color: black;
-        	font-weight: bold;
         }
         
         .div_projectIntro{
@@ -76,10 +73,6 @@
         	margin: 0px 0px 10px 0px;
         }
         
-        .projectIntro_Detail>p>span:first-child{
-        	font-weight: bold;
-        }
-        
         .task{
         	padding-left: 10px;
         }
@@ -92,13 +85,15 @@
 			padding: 2px 5px 2px 5px;
 			color: orangered;
 			font-size: 12px;
-			font-weight: bold;
 			border-radius: 7px;
 		}
     </style>
-
-    <script src="../js/jquery-1.12.4.min.js"></script>
+    
+    <!-- 이 부분에서 jquery-1.12.4.min.js 파일 include 해줘야 하기 때문에 <head>에서 header.jspf 불러옴 -->
+	<% String myPath=".."; %>
+	<%@ include file="../template/header.jspf" %>
     <script src="../js/jquery.bxslider.min.js"></script>
+    
     <script>
         var bx;
 
@@ -118,9 +113,6 @@
     </script>
 </head>
 <body>
-	<% String myPath=".."; %>
-	<%@ include file="../template/header.jspf" %>
-	
 	<br><br>
 	
 	<div>
@@ -149,8 +141,8 @@
 			<p><span>&#128587; 투입인원</span><span> : 200명</span></p>
 			<p>
 				<span>&#128218; 주요업무</span><br>
-				<p class="task">&#9679; 게시판 만들기</p>
-				<p class="task">&#9679; DB 연결</p>
+				<p class="task">&#10004; 게시판 만들기</p>
+				<p class="task">&#10004; DB 연결</p>
 			</p>
 			<p>
 				<span>&#128296; 스킬 및 사용툴</span><br>
