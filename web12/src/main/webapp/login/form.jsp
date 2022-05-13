@@ -9,6 +9,10 @@
 <jsp:include page="../template/head.jsp">
 	<jsp:param value=".." name="root"/>
 </jsp:include>
+	
+<script>
+	if(<%=request.getParameter("msg")%>) alert("이용 감사");
+</script>
 
 </head>
 <body>
