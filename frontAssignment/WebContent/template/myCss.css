@@ -5,6 +5,8 @@
 	position: fixed;	
 	width: 100%;
 	
+	z-index: 3000;
+	
 	text-align: center;
 	padding-bottom: 12px;
 	padding-top: 20px;

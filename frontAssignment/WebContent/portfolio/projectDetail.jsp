@@ -7,6 +7,16 @@
 	<title>Portfolio</title>
 	
     <style>
+		* {
+			font-family: 'Jeju Gothic', sans-serif;
+			font-size: 11pt;
+		}
+		
+    	.div_slide{
+    		position: relative;
+    		z-index: -1000;
+    	}
+    	
         #bx img{
             width: 650px;
             height: 350px
@@ -34,6 +44,57 @@
         }
         .bx-next:hover{text-decoration:none; color: white; }
         .bx-prev:hover{text-decoration:none; color: white; }
+        
+        #projectTitle{
+        	font-size: 40pt;
+        	text-align: center;
+        	padding-top: 60px;
+        	color: black;
+        	font-weight: bold;
+        }
+        
+        .div_projectIntro{
+  			width: 50%;
+			margin: 100px auto 0px auto;
+			font-size: 12pt;
+        }
+        
+        .projectIntro_title{
+        	margin-bottom: 35px;
+        }
+        
+        .projectIntro_title>h3{
+        	padding-bottom: 10px;
+        	border-bottom: 1px solid darkgray;
+        }
+        
+        .projectIntro_title>h3>p{
+        	padding-top: 20px;
+        }
+        
+        .projectIntro_Detail>p{
+        	margin: 0px 0px 10px 0px;
+        }
+        
+        .projectIntro_Detail>p>span:first-child{
+        	font-weight: bold;
+        }
+        
+        .task{
+        	padding-left: 10px;
+        }
+        
+        .aboutMe_year{
+			display: inline-block;
+			margin-top: 4px;
+			margin-right: 0px;
+			background-color: rgb(228, 228, 228);
+			padding: 2px 5px 2px 5px;
+			color: orangered;
+			font-size: 12px;
+			font-weight: bold;
+			border-radius: 7px;
+		}
     </style>
 
     <script src="../js/jquery-1.12.4.min.js"></script>
@@ -48,7 +109,8 @@
                 maxSlides : 1,
                 moveSlides : 1,
                 pager: false,
-                auto : true
+                auto : true,
+                pause : 3000
             });
 
             $('.bx-prev, .bx-next').text('<').next().text('>');
@@ -59,7 +121,11 @@
 	<% String myPath=".."; %>
 	<%@ include file="../template/header.jspf" %>
 	
-	<br>
+	<br><br>
+	
+	<div>
+		<p id="projectTitle">Portfolio Name</p>
+	</div>
 	
 	<div class="div_slide">
 		<ul id="bx">
@@ -71,5 +137,34 @@
 			<li><img src="https://dummyimage.com/650x350/000/fff&text=img06" alt=""></li>
 		</ul>
 	</div>
+	
+	<div class="div_projectIntro">
+		<div class="projectIntro_title">
+			<h3>PROJECT INTRODUCTION</h3>
+			<p>프로젝트 설명</p>
+		</div>
+		
+		<div class="projectIntro_Detail">
+			<p><span>&#128198; 작업기간</span><span> : 20년</span></p>
+			<p><span>&#128587; 투입인원</span><span> : 200명</span></p>
+			<p>
+				<span>&#128218; 주요업무</span><br>
+				<p class="task">&#9679; 게시판 만들기</p>
+				<p class="task">&#9679; DB 연결</p>
+			</p>
+			<p>
+				<span>&#128296; 스킬 및 사용툴</span><br>
+				<span class="aboutMe_year">IntelliJ</span>
+				<span class="aboutMe_year">SpringBoot</span>
+				<span class="aboutMe_year">Java</span>
+				<span class="aboutMe_year">MySQL</span>
+				<span class="aboutMe_year">HTML</span>
+				<span class="aboutMe_year">CSS</span>
+				<span class="aboutMe_year">github</span>
+			</p>
+		</div>
+	</div>
+	
+	<%@ include file="../template/footer.jspf" %>
 </body>
 </html>
