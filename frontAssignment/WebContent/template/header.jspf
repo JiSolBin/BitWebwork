@@ -13,7 +13,7 @@
 		$(function(){
 			$('<div class="menubtn" style="margin-top: 10px;"/>')
 				.append('<span class="navbar-toggler-icon"></span>')
-				.prependTo('nav>div')
+				.prependTo('.btnPlace')
 				.click(function(){
 					$('nav>div>div>ul>li').toggle();
 				})
@@ -44,6 +44,7 @@
 	<nav class="navbar navbar-expand-lg navbar-light bg-light navBar">
         <div class="container-fluid" style="display: inline">
             <a class="navbar-brand" href="<%=myPath %>/index.jsp"><img class="logoImg" src="<%=myPath %>/imgs/computer.png"></a>
+            <div class="btnPlace" style="display:inline-block"></div>
 
             <br>
 
@@ -60,6 +61,13 @@
                     <li class="nav-item">
                         <a class="nav-link" href="<%=myPath %>/board/boardList.jsp">Board</a>
                     </li>
+                    
+                    <jsp:useBean id="login" class="com.bit.util.UserDto" scope="session"></jsp:useBean>
+					<%if(login.isResult()){ %>
+						<li class="nav-item"><a class="nav-link" href="<%=myPath %>/login/logout.jsp">LOGOUT</a></li>
+					<%} else {%>
+						<li class="nav-item"><a class="nav-link" href="<%=myPath %>/login/login.jsp">LOGIN</a></li>
+					<%} %>
                 </ul>
             </div>
         </div>

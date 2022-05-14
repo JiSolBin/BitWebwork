@@ -141,7 +141,7 @@
 					<option value="content"> content </option>
 				</select>
 				<input type="text" name="input" class="ipt">
-				<input type="submit" value="검색" class="btn btn-outline-primary btn_mine2">
+				<input type="submit" value="검색" class="btn btn-outline-primary btn_mine2" style="margin-top:6px">
 			</p>
 		</form>
 		<%
@@ -153,9 +153,12 @@
 		}
 		%>
 
-        <a href="./boardWrite.jsp">
-            <button type="button" class="btn btn-outline-primary btn_mine">글쓰기</button>
-        </a>
+		<%if(login.isResult()){ %>
+			<a href="./boardWrite.jsp">
+	            <button type="button" class="btn btn-outline-primary btn_mine">글쓰기</button>
+	        </a>
+		<%}%>
+        
     </div>
     
     <%@ include file="../template/footer.jspf" %>

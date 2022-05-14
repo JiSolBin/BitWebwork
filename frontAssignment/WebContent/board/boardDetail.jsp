@@ -88,8 +88,10 @@
         </form>
 
         <a href="#this" id="list" class="btn btn-outline-primary">목록으로</a>
-        <a href="#this" id="edit" class="btn btn-outline-primary">수정하기</a>
-        <a href="#this" id="delete" class="btn btn-outline-primary">삭제하기</a>
+        <%if(login.isResult()){ %>
+			<a href="#this" id="edit" class="btn btn-outline-primary">수정하기</a>
+        	<a href="#this" id="delete" class="btn btn-outline-primary">삭제하기</a>
+		<%}%>
     </div>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>

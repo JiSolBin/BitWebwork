@@ -9,7 +9,6 @@
 	<style>
 		* {
 			font-family: 'Jeju Gothic', sans-serif;
-			font-size: 11pt;
 		}
 	</style>
 </head>
@@ -19,8 +18,8 @@
 	
 	<br>
 
-    <div class="div_tb">
-        <p class="lead" id="p1"> Write a post </p>
+    <div class="div_write">
+        <p class="lead" id="p1">글쓰기</p>
         <form id="frm" name="frm" action="insert.jsp" enctype="multipart/form-data">
             <table class="board_detail">
                 <tr>
