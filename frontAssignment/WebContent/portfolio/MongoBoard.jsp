@@ -4,7 +4,7 @@
 <html>
 <head>
 	<meta charset="UTF-8">
-	<title>Portfolio</title>
+	<title>MongoBoard</title>
 	
     <style>
 		*{
@@ -24,7 +24,7 @@
         
         .bx-prev, .bx-next{
             background-color: rgba(255,255,255,0);/* 투명도 */
-            color: white;
+            color: black;
 
             position: relative;
             top: -200px;
@@ -41,8 +41,8 @@
         .bx-next{
             left: 550px;
         }
-        .bx-next:hover{text-decoration:none; color: white; }
-        .bx-prev:hover{text-decoration:none; color: white; }
+        .bx-next:hover{text-decoration:none; color: black; }
+        .bx-prev:hover{text-decoration:none; color: black; }
         
         #projectTitle{
         	font-size: 40pt;
@@ -53,7 +53,6 @@
         .div_projectIntro{
   			width: 50%;
 			margin: 100px auto 0px auto;
-			font-size: 12pt;
         }
         
         .projectIntro_title{
@@ -73,19 +72,32 @@
         	margin: 0px 0px 10px 0px;
         }
         
+        .projectIntro_Detail *{
+        	font-size:11pt;
+        }
+        
         .task{
+        	display: inline-block;
         	padding-left: 10px;
+        	margin: 4px 4px;
         }
         
         .aboutMe_year{
 			display: inline-block;
 			margin-top: 4px;
 			margin-right: 0px;
-			background-color: rgb(228, 228, 228);
-			padding: 2px 5px 2px 5px;
-			color: orangered;
-			font-size: 12px;
-			border-radius: 7px;
+			background-color: rgba(228, 228, 228, 0.8);
+			padding: 1.8px 5px 1.2px 5px;
+			color: rgb(255, 85, 23);
+			border-radius: 5px;
+			
+			font-size: 13px;
+			font-weight: bold;
+		}
+		
+		.sk{
+			display: block;
+			margin-bottom: 10px;
 		}
     </style>
     
@@ -116,43 +128,43 @@
 	<br><br>
 	
 	<div>
-		<p id="projectTitle">Portfolio Name</p>
+		<p id="projectTitle">MongoBoard</p>
 	</div>
 	
 	<div class="div_slide">
 		<ul id="bx">
-			<li><img src="https://dummyimage.com/650x350/000/fff&text=img01" alt=""></li>
-			<li><img src="https://dummyimage.com/650x350/000/fff&text=img02" alt=""></li>
-			<li><img src="https://dummyimage.com/650x350/000/fff&text=img03" alt=""></li>
-			<li><img src="https://dummyimage.com/650x350/000/fff&text=img04" alt=""></li>
-			<li><img src="https://dummyimage.com/650x350/000/fff&text=img05" alt=""></li>
-			<li><img src="https://dummyimage.com/650x350/000/fff&text=img06" alt=""></li>
+			<li><img src="../imgs/page05_1.PNG" alt=""></li>
+			<li><img src="../imgs/page05_2.PNG" alt=""></li>
+			<li><img src="../imgs/page05_3.PNG" alt=""></li>
 		</ul>
 	</div>
 	
 	<div class="div_projectIntro">
 		<div class="projectIntro_title">
 			<h3>PROJECT INTRODUCTION</h3>
-			<p>프로젝트 설명</p>
+			<p>MongoDB를 활용하여 만든 검색 가능한 게시판</p>
 		</div>
 		
 		<div class="projectIntro_Detail">
-			<p><span>&#128198; 작업기간</span><span> : 20년</span></p>
-			<p><span>&#128587; 투입인원</span><span> : 200명</span></p>
+			<p><span>&#128198; 작업기간</span><span> : 2021/05/10 ~ 2022/05/14</span></p>
+			<p><span>&#128587; 투입인원</span><span> : 1명</span></p>
 			<p>
-				<span>&#128218; 주요업무</span><br>
-				<p class="task">&#10004; 게시판 만들기</p>
-				<p class="task">&#10004; DB 연결</p>
+				<span>&#128218; 주요업무</span>
+				<p>
+					<span class="task">&#10004; HTML과 CSS 등을 통해 VIEW 제작</span><br>
+					<span class="task">&#10004; Database 구성하기</span><br>
+					<span class="task">&#10004; 게시글 리스트 페이지 구현</span><br>
+					<span class="task">&#10004; 페이징 기능 구현</span><br>
+					<span class="task">&#10004; 제목 또는 내용으로 검색 기능 구현</span><br>
+				</p>
 			</p>
 			<p>
-				<span>&#128296; 스킬 및 사용툴</span><br>
-				<span class="aboutMe_year">IntelliJ</span>
-				<span class="aboutMe_year">SpringBoot</span>
+				<span class="sk">&#128296; 스킬 및 사용툴</span>
 				<span class="aboutMe_year">Java</span>
-				<span class="aboutMe_year">MySQL</span>
+				<span class="aboutMe_year">MongoDB</span>
+				<span class="aboutMe_year">Javascript</span>
+				<span class="aboutMe_year">Jsp</span>
 				<span class="aboutMe_year">HTML</span>
-				<span class="aboutMe_year">CSS</span>
-				<span class="aboutMe_year">github</span>
 			</p>
 		</div>
 	</div>

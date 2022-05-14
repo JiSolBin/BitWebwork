@@ -114,82 +114,80 @@
 <body>
 	<div class="projectListDiv">
 		<div class="projectDiv">
-			<img src="../imgs/ccc.PNG">
+			<img src="../imgs/page01_2.PNG">
 			<div>
-				<p class="pjTitle">Hello World!</p>
+				<p class="pjTitle">BitWeb</p>
 				<p class="pjSkill">
-					<span>Java</span>
-					<span>Python</span>
-					<span>C++</span>
-					<span>Arduino</span>
-					<span>Raspberry pi</span>
+					<span>HTML</span>
+					<span>CSS</span>
+					<span>Visual Studio Code</span>
 				</p>
 				<p class="pjType">팀프로젝트</p>
-				<p class="pjPeriod">2022/05/10 ~ 2022/05/14</p>
+				<p class="pjPeriod">2018/04/23 ~ 2018/05/01</p>
 			</div>
 		</div>
 		
 		<div class="projectDiv">
-			<img src="../imgs/ccc.PNG">
+			<img src="../imgs/page02_1.PNG">
 			<div>
-				<p class="pjTitle">Hello!</p>
+				<p class="pjTitle">MavenWeb</p>
 				<p class="pjSkill">
+					<span>HTML</span>
+					<span>CSS</span>
+					<span>Eclipse</span>
+					<span>MySQL</span>
 					<span>Java</span>
-					<span>Python</span>
-					<span>C++</span>
-					<span>Arduino</span>
-					<span>Raspberry pi</span>
+					<span>Javascript</span>
+					<span>jQuery</span>
 				</p>
 				<p class="pjType">개인프로젝트</p>
-				<p class="pjPeriod">2022/05/10 ~ 2022/05/14</p>
+				<p class="pjPeriod">2019/02/13 ~ 2019/05/16</p>
 			</div>
 		</div>
 		
 		<div class="projectDiv">
-			<img src="../imgs/ccc.PNG">
+			<img src="../imgs/page04_1.PNG">
 			<div>
-				<p class="pjTitle">Hello!</p>
+				<p class="pjTitle">HelloWorld</p>
 				<p class="pjSkill">
 					<span>Java</span>
-					<span>Python</span>
-					<span>C++</span>
-					<span>Arduino</span>
-					<span>Raspberry pi</span>
+					<span>IntelliJ</span>
+					<span>GitHub</span>
+					<span>GitKraken</span>
 				</p>
-				<p class="pjType">개인프로젝트</p>
-				<p class="pjPeriod">2022/05/10 ~ 2022/05/14</p>
+				<p class="pjType">팀프로젝트</p>
+				<p class="pjPeriod">2019/05/10 ~ 2020/08/14</p>
 			</div>
 		</div>
 		
 		<div class="projectDiv">
-			<img src="../imgs/ccc.PNG">
+			<img src="../imgs/page03_1.PNG">
 			<div>
-				<p class="pjTitle">projectDetail</p>
+				<p class="pjTitle">gradeManagement</p>
 				<p class="pjSkill">
 					<span>Java</span>
-					<span>Python</span>
-					<span>C++</span>
-					<span>Arduino</span>
-					<span>Raspberry pi</span>
+					<span>Eclipse</span>
+					<span>MySQL</span>
+					<span>GitHub</span>
 				</p>
 				<p class="pjType">개인프로젝트</p>
-				<p class="pjPeriod">2022/05/10 ~ 2022/05/14</p>
+				<p class="pjPeriod">2020/04/19 ~ 2021/01/20</p>
 			</div>
 		</div>
 		
 		<div class="projectDiv">
-			<img src="../imgs/ccc.PNG">
+			<img src="../imgs/page05_1.PNG">
 			<div>
-				<p class="pjTitle">projectDetail</p>
+				<p class="pjTitle">MongoBoard</p>
 				<p class="pjSkill">
 					<span>Java</span>
-					<span>Python</span>
-					<span>C++</span>
-					<span>Arduino</span>
-					<span>Raspberry pi</span>
+					<span>MongoDB</span>
+					<span>Javascript</span>
+					<span>Jsp</span>
+					<span>HTML</span>
 				</p>
 				<p class="pjType">개인프로젝트</p>
-				<p class="pjPeriod">2022/05/10 ~ 2022/05/14</p>
+				<p class="pjPeriod">2021/05/10 ~ 2022/05/14</p>
 			</div>
 		</div>
 	</div>
