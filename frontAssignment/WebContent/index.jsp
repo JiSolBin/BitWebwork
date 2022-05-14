@@ -29,21 +29,22 @@
 		}
 	
 		.aboutMe_content{
-			color:black;
 			margin: 5px auto 5px 0px;
-			color: rgb(30, 30, 30);
+			color: rgb(48, 48, 48);
+			font-weight: 500;
+			font-size: 11pt;
 		}
 		
 		.aboutMe_year{
 			display: inline-block;
 			margin-top: 4px;
 			margin-right: 0px;
-			background-color: rgb(228, 228, 228);
-			padding: 2px 5px 2px 5px;
-			color: orangered;
+			background-color: rgba(228, 228, 228, 0.8);
+			padding: 1.8px 5px 1.2px 5px;
+			color: rgb(255, 85, 23);
 			font-size: 12px;
-			font-weight: bold;
-			border-radius: 7px;
+			border-radius: 5px;
+			font-weight: 600;
 		}
 		
 		.aboutMe_div>p>span{
@@ -74,11 +75,11 @@
 			<tr>
 				<td colspan="2">
 					<div class="aboutMe_div">
+						<p style="color:lightgray">익명이라 가짜 데이터입니다.</p><br>
 						<p class="aboutMe_title">&#127891; Education</p>
-						<p class="aboutMe_content"><span class="aboutMe_year">2016~2020</span>한국산업기술대학교 컴퓨터공학부 소프트웨어전공</p>
-						<p class="aboutMe_content"><span class="aboutMe_year">2018~2019</span>소프트웨어 보안을 위한 보안약점 분류에 따른 진단 방법 연구(2차) 과제 참여</p>
-						<p class="aboutMe_content"><span class="aboutMe_year">2020~2021</span>석사</p>
-						<p class="aboutMe_content"><span class="aboutMe_year">2021~2022</span>박사</p>
+						<p class="aboutMe_content"><span class="aboutMe_year">2016~2020</span>고려대학교 수학과 학사</p>
+						<p class="aboutMe_content"><span class="aboutMe_year">2018~2019</span>영국 버밍햄대학교 전산과학과 석사</p>
+						<p class="aboutMe_content"><span class="aboutMe_year">2020~2021</span>고려대학교 전산과학과 이학 박사</p>
 						<p class="aboutMe_content"><span class="aboutMe_year">2022</span>비트교육센터</p>
 					</div>
 				</td>
@@ -88,10 +89,10 @@
 				<td colspan="2">
 					<div class="aboutMe_div">
 						<p class="aboutMe_title">&#127942; Award</p>
-						<p class="aboutMe_content"><span class="aboutMe_year">2019</span>한국인터넷방송통신학회 종합학술대회 우수논문상</p>
-						<p class="aboutMe_content"><span class="aboutMe_year">2020</span>prize2</p>
-						<p class="aboutMe_content"><span class="aboutMe_year">2021</span>prize3</p>
-						<p class="aboutMe_content"><span class="aboutMe_year">2022</span>prize4</p>
+						<p class="aboutMe_content"><span class="aboutMe_year">2019</span>billboard music awards best new artist</p>
+						<p class="aboutMe_content"><span class="aboutMe_year">2020</span>grammy awards best song</p>
+						<p class="aboutMe_content"><span class="aboutMe_year">2021</span>academy awards best actor</p>
+						<p class="aboutMe_content"><span class="aboutMe_year">2022</span>nobel prize in chemistry</p>
 					</div>
 				</td>
 			</tr>
@@ -102,7 +103,6 @@
 						<p class="aboutMe_title">&#128161; Certificate</p>
 						<p class="aboutMe_content"><span class="aboutMe_year">2020</span>정처기</p>
 						<p class="aboutMe_content"><span class="aboutMe_year">2020</span>SQLD</p>
-						<p class="aboutMe_content"><span class="aboutMe_year">2021</span>토익스피킹</p>
 					</div>
 				</td>
 				<td>
