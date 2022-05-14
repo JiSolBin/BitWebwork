@@ -13,6 +13,10 @@
 			font-family: 'Jeju Gothic', sans-serif;
 			font-size: 12pt;
 		}
+		
+		.comentDiv {
+			margin-left: 20px;
+		}
 	</style>
 </head>
 <body>
@@ -34,6 +38,7 @@
                 <%
                 	String boardIdx = request.getParameter("boardIdx");
             		String sql = "select boardIdx, title, content, date_format(createDate, '%Y-%m-%d') from board where boardIdx=" + boardIdx;
+            		String sql2 = "select username, coment from coments where boardIdx=" + boardIdx;
             	
 	            	String driver = "com.mysql.cj.jdbc.Driver";
 	            	String url = "jdbc:mysql://localhost:3306/frontassignment?characterEncoding=UTF-8&autoReconnect=true";
@@ -43,13 +48,17 @@
 		     		Connection conn = null;
 	         		Statement stmt = null;
 	         		ResultSet rs = null;
+	         		Statement stmt2 = null;
+	         		ResultSet rs2 = null;
 		     		
 	         		// db 연결
 	         		try{
 	         			Class.forName(driver);
 	         			conn = DriverManager.getConnection(url,user,password);
 	         			stmt = conn.createStatement();
+	         			stmt2 = conn.createStatement();
 	         			rs = stmt.executeQuery(sql);
+	         			rs2 = stmt2.executeQuery(sql2);
 	         			
 						while(rs.next()){
 						%>
@@ -74,11 +83,6 @@
 		                    </tr>
 		         		<%
 		         		}
-	         		}finally{
-	        			if(rs!=null) rs.close();
-	        			if(stmt!=null) stmt.close();
-	        			if(conn!=null) conn.close();
-	        		}	
             		%>
                 </tbody>
             </table>
@@ -92,6 +96,47 @@
 			<a href="#this" id="edit" class="btn btn-outline-primary">수정하기</a>
         	<a href="#this" id="delete" class="btn btn-outline-primary">삭제하기</a>
 		<%}%>
+		
+		<div id="comentDiv">
+			<form method="post" action="insertComent.jsp">
+				<br><br><hr width = "100%" color = "lightgray">
+				
+				<table>
+					<%
+					while(rs2.next()){
+					%>
+		                <tr>
+	                        <th><%=rs2.getString(1)%></th>
+	                        <td id="td2" colspan="3">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%=rs2.getString(2)%></td>
+	                    </tr>
+	         		<%
+	         		}
+	         	%>
+	         	</table>
+	         	<%
+         		}finally{
+        			if(rs!=null) rs.close();
+        			if(stmt!=null) stmt.close();
+        			if(rs2!=null) rs.close();
+        			if(stmt2!=null) stmt.close();
+        			if(conn!=null) conn.close();
+        		}	
+				%>
+				
+				<%if(login.isResult()){ %>
+					<table style="margin:30px">
+						<input type="hidden" id="boardIdx" name="boardIdx" value="<%= boardIdx%>">
+						<input type="hidden" id="username" name="username" value="<%= login.getUsername()%>">
+		                <tr>
+		                    <td colspan="2">
+		                        <textarea id="coment" name="coment" class="form-control txt1" rows="2"></textarea>
+		                    </td>
+		                    <td><input type="submit" id="submit" value="입력" class="btn btn-outline-dark" style="margin-left: 20px"></td>
+		                </tr>
+	            	</table>
+				<%}%>
+			</form>
+		</div>
     </div>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>

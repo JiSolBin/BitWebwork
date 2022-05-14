@@ -72,27 +72,28 @@
 	         			// 검색O
 	         			if(request.getParameter("sel")!=null){
 	        				String sel = request.getParameter("sel");
-	        				String input = request.getParameter("input");
+	        				String input = new String(request.getParameter("input").getBytes("8859_1"), "UTF-8");
+	        				
 	        				if(sel.equals("content")){ // 내용검색
 	        					sql = "select boardIdx, title, date_format(createDate, '%Y-%m-%d') " 
-			        					+ "from board where content like '%" + input +"%' "
-			        					+ "limit " + 10*(p-1) + ", 10";
+			        					+ "from board where content like '%" + input +"%' order by boardIdx desc "
+			        					+ "limit " + 7*(p-1) + ", 7";
 	        					sql2 = "select count(*) from board where content like '%" + input +"%'";
 	        				}
 	        				else{ // 제목검색
 	        					sql = "select boardIdx, title, date_format(createDate, '%Y-%m-%d') " 
-			        					+ "from board where title like '%" + input +"%' "
-			        					+ "limit " + 10*(p-1) + ", 10";
+			        					+ "from board where title like '%" + input +"%' order by boardIdx desc "
+			        					+ "limit " + 7*(p-1) + ", 7";
 	        					sql2 = "select count(*) from board where title like '%" + input +"%'";
 	        				}
 	        			}
 	        			else { // 검색X
-	        				sql = "select boardIdx, title, date_format(createDate, '%Y-%m-%d') from board limit " + 10*(p-1) + ", 10";
+	        				sql = "select boardIdx, title, date_format(createDate, '%Y-%m-%d') from board order by boardIdx desc limit " + 7*(p-1) + ", 7";
 	        				sql2 = "select count(*) from board";
 	        			}
 	         		
 	         			rs = stmt.executeQuery(sql);
-	         			
+	         			System.out.println(sql2);
 	         			// 페이징
 	         			rs2 = stmt2.executeQuery(sql2);
 	         			
@@ -100,8 +101,8 @@
 	         				cnt = rs2.getInt(1);
 	         			}
 	         			
-	        			int pageNum = cnt/10;
-	        			if(cnt%10!=0) ++pageNum;
+	        			int pageNum = cnt/7;
+	        			if(cnt%7!=0) ++pageNum;
 	        			
 	        			String q = "";
 	        			if(request.getParameter("sel")!=null){
