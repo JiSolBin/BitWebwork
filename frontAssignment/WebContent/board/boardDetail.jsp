@@ -7,17 +7,6 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<title>Post</title>
-	
-	<style>
-		* {
-			font-family: 'Jeju Gothic', sans-serif;
-			font-size: 12pt;
-		}
-		
-		.comentDiv {
-			margin-left: 20px;
-		}
-	</style>
 </head>
 <body>
 	<% String myPath=".."; %>
@@ -25,9 +14,9 @@
 	
 	<br>
 
-    <div class="div_tb">
+    <div class="boardDetail_table_div">
         <form id="frm" method="post">
-            <table class="table table-hover detailTable">
+            <table class="table table-hover">
                 <colgroup>
                     <col width="15%"/>
                     <col width="35%"/>
@@ -73,7 +62,7 @@
 		                    <tr>
 		                        <th scope="row" id="th3">Title</th>
 		                        <td colspan="3" id="td3">
-		                            <input type="text" class="form-control title" id="title" name="title" value="<%=rs.getString(2)%>"/>
+		                            <input type="text" class="form-control board_Detail_title" id="title" name="title" value="<%=rs.getString(2)%>"/>
 		                        </td>
 		                    </tr>
 		                    <tr>
@@ -124,14 +113,14 @@
 				%>
 				
 				<%if(login.isResult()){ %>
-					<table style="margin:30px">
+					<table class="boardDetail_coment_table">
 						<input type="hidden" id="boardIdx" name="boardIdx" value="<%= boardIdx%>">
 						<input type="hidden" id="username" name="username" value="<%= login.getUsername()%>">
 		                <tr>
 		                    <td colspan="2">
-		                        <textarea id="coment" name="coment" class="form-control txt1" rows="2"></textarea>
+		                        <textarea id="coment" name="coment" class="form-control boardInsert_input" rows="2"></textarea>
 		                    </td>
-		                    <td><input type="submit" id="submit" value="입력" class="btn btn-outline-dark" style="margin-left: 20px"></td>
+		                    <td><input type="submit" id="submit" value="입력" class="btn btn-outline-dark"></td>
 		                </tr>
 	            	</table>
 				<%}%>

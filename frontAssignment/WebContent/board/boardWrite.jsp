@@ -5,12 +5,6 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<title>Write a post</title>
-		
-	<style>
-		* {
-			font-family: 'Jeju Gothic', sans-serif;
-		}
-	</style>
 </head>
 <body>
 	<% String myPath=".."; %>
@@ -18,18 +12,18 @@
 	
 	<br>
 
-    <div class="div_write">
-        <p class="lead" id="p1">글쓰기</p>
+    <div class="boardWrite_table_div">
+        <p class="lead" id="boardWrite_div_label">글쓰기</p>
         <form id="frm" name="frm" action="insert.jsp" enctype="multipart/form-data">
             <table class="board_detail">
                 <tr>
                     <label class="col-form-label mt-4" for="title">Title</label>
-                    <input type="text" class="form-control txt1" id="title" name="title">
+                    <input type="text" class="form-control boardInsert_input" id="title" name="title">
                 </tr>
                 <tr>
                     <label class="col-form-label mt-4" for="content">Content</label>
                     <td colspan="2">
-                        <textarea id="content" name="content" class="form-control txt1" rows="5"></textarea>
+                        <textarea id="content" name="content" class="form-control boardInsert_input" rows="5"></textarea>
                     </td>
                 </tr>
             </table>

@@ -11,88 +11,13 @@
 	padding-bottom: 12px;
 	padding-top: 20px;
 }
-
 .menuBar{
 	margin: 10px auto;
 }
-
 .marginDiv{
 	height:50px;
 	margin-bottom: 100px;
 }
-
 .logoImg{
 	width:60px;
-}
-
-
-/* boardList */
-.btn_mine{
-	width: 2cm;
-	height: 1cm;
-	padding: 0px;
-}
-	
-.btn_mine2{
-	width: 1.5cm;
-	height: 0.9cm;
-	padding: 0px;
-}
-	
-.ipt{
-	height: 0.9cm;
-}
-	
-.div_tb{
-	max-width:900px;
-	margin:30px auto;
-}
-	
-.p_in_form{
-	text-align: center;
-}
-
-
-/* boardDetail */
-.div_tb{
-	max-width:900px;
-	margin:30px auto;
-}
-
-#th1, #th2{
-	padding: 10px 20px;
-}
-
-#td1, #td2{
-	padding: 10px;
-}
-
-#th3{
-	padding: 30px 20px;
-}
-
-#td3{
- 	padding-top: 20px;
- 	padding-left: 5px;
-}
-
-.title{
-	width: 19.2cm;
-}
-
-
-/* boardWrite */
-#p1{
-	color: black;
-}
-
-.txt1{
-	width: 20cm;
-}	
-
-
-/* portfolio */
-.div_slide{
-	max-width:650px;
-	margin:30px auto;
 }

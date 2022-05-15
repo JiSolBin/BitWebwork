@@ -1,0 +1,146 @@
+@charset "UTF-8";
+
+/* projectList */
+.projectListDiv{
+	width: 50%;
+	margin: 200px auto 0px auto;
+}
+.projectDiv{
+	width: 250px;
+	border-radius: 10px;
+	border: 1px solid lightgray;
+	box-shadow: 0px 3px 5px 0px lightgray;
+	
+	display: inline-block;
+	margin: 10px;
+}
+.projectDiv>img{
+	border-radius: 10px 10px 0px 0px;
+	padding: 5px;
+	width: 100%;
+	height: 150px;
+	border-bottom: 1px solid lightgray;
+}
+.projectDiv>div{
+	border-radius: 0px 0px 10px 10px;
+	padding: 10px 15px 10px 15px;
+	font-weight: lighter;
+}
+.projectDiv>div>p{
+	margin-bottom: 7px;
+	font-size: 10pt;
+}
+.projectDiv>div>p:last-child{
+	margin-bottom: 0px;
+}
+
+.pjTitle{
+	font-size: 12pt;
+	font-weight: 600;
+}
+.pjSkill{
+	width: 100%;
+	height: 25px;
+	overflow: hidden;
+	white-space:nowrap;
+}
+.pjSkill>span{
+	display: inline-block;
+	font-size: 10pt;
+	letter-spacing: -1px;
+	
+	background-color: rgb(228, 228, 228);
+	padding: 1.8px 5px 1.2px 5px;
+	border-radius: 5px;
+}
+.pjType{
+	display: inline-block;
+	background-color: rgb(228, 228, 228);
+	padding: 1.8px 5px 1.2px 5px;
+	border-radius: 5px;
+}
+.pjPeriod{
+	letter-spacing: -1px;		
+}
+
+
+
+/* projectDetail */
+*{ color: rgb(30, 30, 30); }
+.div_slide{
+	position: relative;
+	max-width:650px;
+	margin:10px auto;
+}
+#bx img{
+    width: 650px;
+    height: 350px
+}
+.bx-prev, .bx-next{
+    background-color: rgba(255,255,255,0);/* 투명도 */
+	color: black;
+	
+	position: relative;
+	top: -200px;
+	
+	display: inline-block;
+	width: 50px;
+	height: 50px;
+	border-radius: 25px;
+	text-align: center;
+	line-height: 40px;
+	text-decoration: none;
+	font-size: 50px;
+}
+.bx-next{
+	left: 550px;
+}
+.bx-next:hover{text-decoration:none; color: black; }
+.bx-prev:hover{text-decoration:none; color: black; }
+     
+#projectTitle{
+	font-size: 40pt;
+	text-align: center;
+	padding-top: 60px;
+}    
+.div_projectIntro{
+	width: 50%;
+	margin: 30px auto 0px auto;
+}
+.projectIntro_title{
+	margin-bottom: 35px;
+}
+.projectIntro_title>h3{
+	padding-bottom: 10px;
+	border-bottom: 1px solid darkgray;
+}
+.projectIntro_title>h3>p{
+	padding-top: 20px;
+}
+.projectIntro_Detail>p{
+	margin: 0px 0px 10px 0px;
+}
+.projectIntro_Detail *{
+	font-size:11pt;
+}
+.task{
+	display: inline-block;
+	padding-left: 10px;
+	margin: 4px 4px;
+}    
+.pjojectDetail_span{
+	display: inline-block;
+	margin-top: 4px;
+	margin-right: 0px;
+	background-color: rgba(228, 228, 228, 0.8);
+	padding: 1.8px 5px 1.2px 5px;
+	color: rgb(255, 85, 23);
+	border-radius: 5px;
+	
+	font-size: 13px;
+	font-weight: bold;
+}
+.sk{
+	display: block;
+	margin-bottom: 10px;
+}

@@ -7,13 +7,6 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<title>Board</title>
-		
-	<style>
-		* {
-			font-family: 'Jeju Gothic', sans-serif;
-			font-size: 12pt;
-		}
-	</style>
 </head>
 <body>
 	<% String myPath=".."; %>
@@ -21,7 +14,7 @@
 	
 	<br>
 	
-    <div class="div_tb">
+    <div class="boardList_table_div">
         <table class="table table-hover">
             <colgroup>
                 <col width="20%"/>
@@ -93,7 +86,6 @@
 	        			}
 	         		
 	         			rs = stmt.executeQuery(sql);
-	         			System.out.println(sql2);
 	         			// 페이징
 	         			rs2 = stmt2.executeQuery(sql2);
 	         			
@@ -113,7 +105,7 @@
 						%>
 			         		<tr class="table-secondary">
 			                    <td><%=rs.getString(1)%></td>
-			                    <td class="title"><a href="./boardDetail.jsp?boardIdx=<%=rs.getInt(1)%>"><%=rs.getString(2)%></a></td>
+			                    <td><a href="./boardDetail.jsp?boardIdx=<%=rs.getInt(1)%>" class="boardList_title"><%=rs.getString(2)%></a></td>
 			                    <td><%=rs.getString(3)%></td>
 			                </tr>
 		         		<%
@@ -123,11 +115,11 @@
             </tbody>
         </table>
 			
-		<p align="center">
+		<p class="boardList_page">
 			<%
 			for(int i=0; i<pageNum; ++i){
 			%>
-				<a href="./boardList.jsp?choice=<%=i+q%>" style="text-decoration:none; color:black" >
+				<a href="./boardList.jsp?choice=<%=i+q%>">
 					<%=i+1 %>&nbsp;&nbsp;&nbsp;
 				</a>
 			<%		
@@ -135,14 +127,14 @@
 			%>
 		</p>
 			
-		<form>
-			<p class="p_in_form">
-				<select name="sel" class="ipt">
+		<form class="searchForm">
+			<p>
+				<select name="sel" class="boardList_input">
 					<option value="title"> title </option>
 					<option value="content"> content </option>
 				</select>
-				<input type="text" name="input" class="ipt">
-				<input type="submit" value="검색" class="btn btn-outline-primary btn_mine2" style="margin-top:6px">
+				<input type="text" name="input" class="boardList_input">
+				<input type="submit" value="검색" class="btn btn-outline-primary boardList_searchBtn">
 			</p>
 		</form>
 		<%
@@ -156,7 +148,7 @@
 
 		<%if(login.isResult()){ %>
 			<a href="./boardWrite.jsp">
-	            <button type="button" class="btn btn-outline-primary btn_mine">글쓰기</button>
+	            <button type="button" class="btn btn-outline-primary boardList_writeBtn">글쓰기</button>
 	        </a>
 		<%}%>
         

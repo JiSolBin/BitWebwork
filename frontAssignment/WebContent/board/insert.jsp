@@ -10,8 +10,9 @@
 </head>
 <body>
 <%
-	String title = request.getParameter("title");
-	String content = request.getParameter("content");
+	//request.setCharacterEncoding("UTF-8");
+	String title = new String(request.getParameter("title").getBytes("8859_1"), "UTF-8");
+	String content = new String(request.getParameter("content").getBytes("8859_1"), "UTF-8");
 
 	String sql = "insert into board(title, content) values ('" + title + "', '" + content + "')";
 	System.out.println(sql);

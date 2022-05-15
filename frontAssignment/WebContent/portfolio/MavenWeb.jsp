@@ -6,106 +6,10 @@
 	<meta charset="UTF-8">
 	<title>MavenWeb</title>
 	
-    <style>
-		*{
-			font-family: 'Jeju Gothic', sans-serif;
-			font-size: 12pt;
-			color: rgb(30, 30, 30);
-		}
-		
-    	.div_slide{
-    		position: relative;
-    	}
-    	
-        #bx img{
-            width: 650px;
-            height: 350px
-        }
-        
-        .bx-prev, .bx-next{
-            background-color: rgba(255,255,255,0);/* 투명도 */
-            color: black;
-
-            position: relative;
-            top: -200px;
-
-            display: inline-block;
-            width: 50px;
-            height: 50px;
-            border-radius: 25px;
-            text-align: center;
-            line-height: 40px;
-            text-decoration: none;
-            font-size: 50px;
-        }
-        .bx-next{
-            left: 550px;
-        }
-        .bx-next:hover{text-decoration:none; color: black; }
-        .bx-prev:hover{text-decoration:none; color: black; }
-        
-        #projectTitle{
-        	font-size: 40pt;
-        	text-align: center;
-        	padding-top: 60px;
-        }
-        
-        .div_projectIntro{
-  			width: 50%;
-			margin: 100px auto 0px auto;
-        }
-        
-        .projectIntro_title{
-        	margin-bottom: 35px;
-        }
-        
-        .projectIntro_title>h3{
-        	padding-bottom: 10px;
-        	border-bottom: 1px solid darkgray;
-        }
-        
-        .projectIntro_title>h3>p{
-        	padding-top: 20px;
-        }
-        
-        .projectIntro_Detail>p{
-        	margin: 0px 0px 10px 0px;
-        }
-        
-        .projectIntro_Detail *{
-        	font-size:11pt;
-        }
-        
-        .task{
-        	display: inline-block;
-        	padding-left: 10px;
-        	margin: 4px 4px;
-        }
-        
-        .aboutMe_year{
-			display: inline-block;
-			margin-top: 4px;
-			margin-right: 0px;
-			background-color: rgba(228, 228, 228, 0.8);
-			padding: 1.8px 5px 1.2px 5px;
-			color: rgb(255, 85, 23);
-			border-radius: 5px;
-			
-			font-size: 13px;
-			font-weight: bold;
-		}
-		
-		.sk{
-			display: block;
-			margin-bottom: 10px;
-		}
-    </style>
-    
-    <!-- 이 부분에서 jquery-1.12.4.min.js 파일 include 해줘야 하기 때문에 <head>에서 header.jspf 불러옴 -->
 	<% String myPath=".."; %>
 	<%@ include file="../template/header.jspf" %>
+	
     <script src="../js/jquery.bxslider.min.js"></script>
-    
     <script>
         var bx;
 
@@ -163,13 +67,13 @@
 			</p>
 			<p>
 				<span class="sk">&#128296; 스킬 및 사용툴</span>
-				<span class="aboutMe_year">HTML</span>
-				<span class="aboutMe_year">CSS</span>
-				<span class="aboutMe_year">Eclipse</span>
-				<span class="aboutMe_year">MySQL</span>
-				<span class="aboutMe_year">Java</span>
-				<span class="aboutMe_year">Javascript</span>
-				<span class="aboutMe_year">jQuery</span>
+				<span class="pjojectDetail_span">HTML</span>
+				<span class="pjojectDetail_span">CSS</span>
+				<span class="pjojectDetail_span">Eclipse</span>
+				<span class="pjojectDetail_span">MySQL</span>
+				<span class="pjojectDetail_span">Java</span>
+				<span class="pjojectDetail_span">Javascript</span>
+				<span class="pjojectDetail_span">jQuery</span>
 			</p>
 		</div>
 	</div>

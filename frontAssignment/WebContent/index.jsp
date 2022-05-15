@@ -5,71 +5,12 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<title>HOME</title>
-	
-	<style>
-		* {
-			font-family: 'Jeju Gothic', sans-serif;
-			font-size: 12pt;
-		}
-	
-		.aboutMe{
-			width: 40%;
-			margin: 0px auto;
-		}
-		
-		.aboutMe_title{
-			font-size: 20px;
-			font-weight: bold;
-			margin-bottom: 8px;
-			color: rgb(30, 30, 30);
-		}
-		
-		.aboutMe_div{
-			margin-bottom: 50px;
-		}
-	
-		.aboutMe_content{
-			margin: 5px auto 5px 0px;
-			color: rgb(48, 48, 48);
-			font-weight: 500;
-			font-size: 11pt;
-		}
-		
-		.aboutMe_year{
-			display: inline-block;
-			margin-top: 4px;
-			margin-right: 0px;
-			background-color: rgba(228, 228, 228, 0.8);
-			padding: 1.8px 5px 1.2px 5px;
-			color: rgb(255, 85, 23);
-			font-size: 12px;
-			border-radius: 5px;
-			font-weight: 600;
-		}
-		
-		.aboutMe_div>p>span{
-			margin-right: 7px;
-		}
-		
-		.half_td{
-			width:50%;
-		}
-		
-		.aboutMe_lastDiv{
-			height: 250px;
-		}
-		
-		.aboutMe_lastDiv:first-child>p>span{
-			margin-right: 7px;
-		}
-	</style>
 </head>
 <body>
 	<% String myPath="."; %>
 	<%@ include file="template/header.jspf" %>
-	
 	<br><br><br><br>
-
+	
 	<table class="aboutMe">
 		<tbody>
 			<tr>
