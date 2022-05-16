@@ -1,13 +1,23 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
 </head>
 <body>
 	<h1>ex06 page</h1>
-	<form action="ex07.html" method="get">
+	<a href="#">Get ex08.html</a>
+	<form action="ex08.html" method="post">
+		<input type="text" name="id" id="inputId">
 		<button>이동</button>
 	</form>
+	
+	<script>
+		document.querySelector('a').onclick = function(){
+			var msg = document.getElementById('inputId').value;
+			window.location.href = "/web13/ex08.html?id=" + encodeURIComponent(msg);
+			return false;
+		};
+	</script>
 </body>
 </html>
