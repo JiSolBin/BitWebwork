@@ -7,6 +7,30 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<title>Post</title>
+	
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function(){
+            var boardIdx = $("#boardIdx").val();
+            var q = '?';
+
+            $("#list").on("click", function(){
+            	history.back();
+            });
+
+            $("#edit").on("click", function(){
+                var frm = $("#frm")[0];
+                frm.action = "./edit.jsp?"+boardIdx;
+                frm.submit();
+            });
+
+            $("#delete").on("click", function(){
+                var frm = $("#frm")[0];
+                frm.action = "./delete.jsp?boardIdx="+boardIdx;
+                frm.submit();
+            });
+        });
+    </script>
 </head>
 <body>
 	<% String myPath=".."; %>
@@ -81,7 +105,7 @@
         </form>
 
         <a href="#this" id="list" class="btn btn-outline-primary">목록으로</a>
-        <%if(login.isResult()){ %>
+        <%if(login.isResult() && login.getUsername().equals("me")){ %>
 			<a href="#this" id="edit" class="btn btn-outline-primary">수정하기</a>
         	<a href="#this" id="delete" class="btn btn-outline-primary">삭제하기</a>
 		<%}%>
@@ -127,30 +151,6 @@
 			</form>
 		</div>
     </div>
-
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script type="text/javascript">
-        $(document).ready(function(){
-            var boardIdx = $("#boardIdx").val();
-            var q = '?';
-
-            $("#list").on("click", function(){
-            	history.back();
-            });
-
-            $("#edit").on("click", function(){
-                var frm = $("#frm")[0];
-                frm.action = "./edit.jsp?"+boardIdx;
-                frm.submit();
-            });
-
-            $("#delete").on("click", function(){
-                var frm = $("#frm")[0];
-                frm.action = "./delete.jsp?"+boardIdx;
-                frm.submit();
-            });
-        });
-    </script>
     
 	<%@ include file="../template/footer.jspf" %>
 </body>

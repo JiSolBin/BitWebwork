@@ -98,7 +98,8 @@
 	        			
 	        			String q = "";
 	        			if(request.getParameter("sel")!=null){
-	        				q = "&sel=" + request.getParameter("sel") + "&input=" + request.getParameter("input");
+	        				String input = new String(request.getParameter("input").getBytes("8859_1"), "UTF-8");
+	        				q = "&sel=" + request.getParameter("sel") + "&input=" + input;
 	        			}
 	         			
 						while(rs.next()){
@@ -146,7 +147,7 @@
 		}
 		%>
 
-		<%if(login.isResult()){ %>
+		<%if(login.isResult() && login.getUsername().equals("me")){ %>
 			<a href="./boardWrite.jsp">
 	            <button type="button" class="btn btn-outline-primary boardList_writeBtn">글쓰기</button>
 	        </a>

@@ -15,7 +15,6 @@
 	String content = new String(request.getParameter("content").getBytes("8859_1"), "UTF-8");
 
 	String sql = "insert into board(title, content) values ('" + title + "', '" + content + "')";
-	System.out.println(sql);
 
 	String driver = "com.mysql.cj.jdbc.Driver";
 	String url = "jdbc:mysql://localhost:3306/frontassignment?characterEncoding=UTF-8&autoReconnect=true";

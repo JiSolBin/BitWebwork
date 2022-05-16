@@ -42,7 +42,7 @@
          		<td class="half_td">
 					<div class="aboutMe_lastDiv">
 						<p class="aboutMe_title">&#128161; Certificate</p>
-						<p class="aboutMe_content"><span class="aboutMe_year">2020</span>정처기</p>
+						<p class="aboutMe_content"><span class="aboutMe_year">2020</span>정보처리기사</p>
 						<p class="aboutMe_content"><span class="aboutMe_year">2020</span>SQLD</p>
 					</div>
 				</td>
