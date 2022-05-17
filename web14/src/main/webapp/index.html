@@ -17,20 +17,41 @@
 	<script type="text/javascript" src="js/jquery-1.12.4.min.js"></script>
 	<script type="text/javascript" src="js/bootstrap.min.js"></script>
 	<script>
-		$(function(){
-			$('.carousel').carousel({
-				interval: 2000
-			});
-			
-			$('#content>div').hide().filter('#p1').show();
-			$('.navbar a').first().click(function(e){
-				$('#content>div').hide().filter('#p1').show();	
-			});
-			$('.navbar a').eq(1).click(function(e){
-				$('#content>div').hide().filter('#p2').show();	
+	$(function(){
+		$('.carousel').carousel({
+			interval: 2000
+		});
+		
+		$('#content>div').hide().first().show();
+		$('.navbar a').first().click(function(e){
+			$('#content>div').hide().filter('#p1').show();	
+		});
+		$('.navbar a').eq(1).click(function(e){
+			$('#content>div').hide().filter('#p2').show();
+			$.getJSON('api/emps.json', function(data){
+				$('#p2 table>tbody').empty();
+				$(data.emp).each(function(idx, ele){
+					var row = ele;
+					$('<tr/>')
+						.append('<td><a href="#'+row.empno+'">'+row.empno+'</a></td>')
+						.append('<td><a href="#'+row.empno+'">'+row.ename+'</a></td>')
+						.append('<td><a href="#'+row.empno+'">'+row.sal+'</a></td>')
+						.appendTo('#p2 table>tbody')
+					;
+				});
 			});
 		});
-		</script>
+		
+		$('#myModal form').submit(function(e){
+			e.preventDefault();
+			var param = $(e.target).serialize();
+			$.post('api/addemp.json', param, function(e){
+				$('#myModal').modal('hide');
+				$('.navbar a').eq(1).click();
+			});
+		});
+	});
+	</script>
 </head>
 <body>
 
@@ -89,7 +110,7 @@
 		<div id="p2" class="col-md-12">
 			<div class="jumbotron">
 			  <h1>EMP PAGE</h1>
-			  <p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a></p>
+			  <p><a class="btn btn-primary btn-lg" href="#" role="button" data-toggle="modal" data-target="#myModal">입력</a></p>
 			</div>
 			<table class="table">
 				<thead>
@@ -114,5 +135,41 @@
 		</div>
 	</div>
 </div>
+
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">입력 페이지</h4>
+      </div>
+      <div class="modal-body">
+        <form action="#insert" method="post">
+        	<div class="form-group">
+        		<label for="empno">empno</label>
+        		<input class="form-control" type="text" name="empno" id="empno" placeholder="empno">
+        	</div>
+        	<div class="form-group">
+        		<label for="ename">ename</label>
+        		<input class="form-control" type="text" name="ename" id="ename" placeholder="ename">
+        	</div>
+        	<div class="form-group">
+        		<label for="sal">sal</label>
+        		<input class="form-control" type="text" name="sal" id="sal" placeholder="sal">
+        	</div>
+        	<div class="form-group">
+        		<button class="btn btn-primary" type="submit">입력</button>
+        		<button class="btn btn-default" type="reset">취소</button>
+        		<button class="btn btn-default" type="button" data-dismiss="modal">뒤로</button>
+        	</div>
+        </form>
+      </div>
+      <div class="modal-footer">
+      </div>
+    </div>
+  </div>
+</div>
+
 </body>
 </html>
