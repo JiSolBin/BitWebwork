@@ -24,6 +24,13 @@
 			popup2.find('input').filter(':gt(0)').removeProp('readonly');
 			return false;
 		});
+		popup2.find('button').eq(2).html("삭제").toggleClass('btn-default').addClass('btn-danger').one('click', function(e){
+			$.post('api/empDel.json','empno='+popup2.find('input:eq(0)').val(),function(){
+				popup2.modal('hide');
+				$('.navbar a').eq(1).click();
+			});
+			return false;
+		});
 	};
 	$(function(){
 		popup2 = $('#myModal').clone();
@@ -31,7 +38,18 @@
 		popup2.find('form').submit(function(e){
 			e.preventDefault();
 			var param = $(e.target).serialize();
-			
+			$.ajax({
+				url: 'api/empUpdate.json',
+				type: 'post',
+				data: param,
+				error: function(){
+					
+				},
+				success: function(){
+					popup2.modal('hide');
+					$('.navbar a').eq(1).click();
+				}
+			});
 		});
 		
 		$('.carousel').carousel({
