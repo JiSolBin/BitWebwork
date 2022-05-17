@@ -23,4 +23,13 @@
   	<servlet-name>EmpAdd</servlet-name>
   	<url-pattern>/api/addemp.json</url-pattern>
   </servlet-mapping>
+  
+  <servlet>
+	<servlet-name>EmpOne</servlet-name>
+	<servlet-class>com.bit.controller.EmpOneController</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>EmpOne</servlet-name>
+  	<url-pattern>/api/emp.json</url-pattern>
+  </servlet-mapping>
 </web-app>
