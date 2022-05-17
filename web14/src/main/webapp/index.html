@@ -44,11 +44,19 @@
 		
 		$('#myModal form').submit(function(e){
 			e.preventDefault();
+			$('#myModal h4').html('입력 페이지');
+			
 			var param = $(e.target).serialize();
-			$.post('api/addemp.json', param, function(e){
-				$('#myModal').modal('hide');
-				$('.navbar a').eq(1).click();
-			});
+			$.post('api/addemp.json', param, function(data){
+				if(data.insert[0].result){
+					$('#myModal').modal('hide');
+					$('.navbar a').eq(1).click();
+					$('#myModal input').val('');
+				}
+				else{ // 중복값 입력 등 실패
+					$('#myModal h4').html('입력 페이지<small>'+data.insert[0].err+'</small>');
+				}
+			}, 'json');
 		});
 	});
 	</script>
