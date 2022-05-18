@@ -42,13 +42,7 @@
 			    	<a href="../dept/list.html" class="btn btn-default">DEPT</a>
 			    </p>
 			    <p class="navbar-text navbar-right">
-			    	<% if(session.getAttribute("result")!=null){
-			    		out.print(session.getAttribute("id").toString()+"님 로그인 중");
-			    	%>
-			    		<a href="../login/index.html">LOGOUT</a>
-			    	<%} else{ %>
-			    		<a href="../login/index.html">LOGIN</a>
-			    	<%} %>
+			    	<a href="../login/index.html">LOGIN</a>
 			    </p>
 			  </div>
 			</nav>
@@ -58,7 +52,7 @@
     	<div class="col-md-12">
 			
 			<div class="page-header">
-			  <h2>EMP Insert Page <small>EMP table에 입력</small></h2>
+			  <h2>Login Page <small>로그인 페이지</small></h2>
 			</div>
 			<form method="post">
 			  <div class="form-group">
@@ -70,12 +64,13 @@
 			    <input type="text" class="form-control" id="ename" name="ename" placeholder="ename">
 			  </div>
 			  <div class="form-group">
-			    <label for="sal">sal</label>
-			    <input type="text" class="form-control" id="sal" name="sal" placeholder="sal">
+			  	<button type="submit" class="btn btn-primary btn-block">입력</button>
+			  	<button type="reset" class="btn btn-default btn-block">취소</button>
+			  	<button type="button" class="btn btn-default btn-block">뒤로</button>
 			  </div>
-			  <button type="submit" class="btn btn-primary btn-block">입력</button>
-			  <button type="reset" class="btn btn-default btn-block">취소</button>
-			  <button type="button" class="btn btn-default btn-block">뒤로</button>
+			  <div class="form-group">
+			  	<p>회원가입은 <a href="#">여기</a>를 이용</p>
+			  </div>
 			</form>
 			
     	</div>
