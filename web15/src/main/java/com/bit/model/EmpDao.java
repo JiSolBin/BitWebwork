@@ -110,4 +110,21 @@ public class EmpDao {
 		
 		return 0;
 	}
+
+	public int deleteOne(int empno) {
+		
+		String sql = "delete from emp where empno=?";
+		try(
+				Connection connection = Mysql.getConnection();
+				PreparedStatement pstmt = connection.prepareStatement(sql);
+		){
+			// 치환할 것을 던져줌
+			pstmt.setInt(1, empno);
+			pstmt.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		return 0;
+	}
 }
