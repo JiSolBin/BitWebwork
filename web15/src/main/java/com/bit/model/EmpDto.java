@@ -7,7 +7,14 @@ public class EmpDto {
 	private String ename;
 	private int sal;
 	private Timestamp hiredate;
+	private String job;
 	
+	public String getJob() {
+		return job;
+	}
+	public void setJob(String job) {
+		this.job = job;
+	}
 	public int getEmpno() {
 		return empno;
 	}
@@ -32,10 +39,9 @@ public class EmpDto {
 	public void setHiredate(Timestamp hiredate) {
 		this.hiredate = hiredate;
 	}
-	
 	@Override
 	public String toString() {
-		return "EmpDto [empno=" + empno + ", ename=" + ename + ", sal=" + sal + ", hiredate=" + hiredate + "]";
+		return "EmpDto [empno=" + empno + ", ename=" + ename + ", sal=" + sal + ", hiredate=" + hiredate + ", job="
+				+ job + "]";
 	}
-	
 }

@@ -53,10 +53,39 @@ public class EmpDao {
 			pstmt.setInt(1, empno);
 			pstmt.setString(2, ename);
 			pstmt.setInt(3, sal);
-			
 			pstmt.executeUpdate();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
+	}
+
+	public EmpDto getOne(int empno) {
+
+		String sql = "select * from emp where empno=?";
+		try(
+				Connection connection = Mysql.getConnection();
+				PreparedStatement pstmt = connection.prepareStatement(sql); 
+		){
+			// 치환할 것을 던져줌
+			pstmt.setInt(1, empno);
+			ResultSet rs = pstmt.executeQuery();
+			
+			if(rs.next()) {
+				EmpDto bean = new EmpDto();
+				bean.setEmpno(rs.getInt("empno"));
+				bean.setEname(rs.getString("ename"));
+				bean.setHiredate(rs.getTimestamp("hiredate"));
+				bean.setSal(rs.getInt("sal"));
+				bean.setJob(rs.getString("job"));
+				rs.close();
+				return bean;
+			}
+		} catch (SQLException e) {
+			StackTraceElement[] errs = e.getStackTrace();
+			for(StackTraceElement ele:errs)
+				log.error(ele.getLineNumber()+"줄 - "+ele.getClassName()+"-"+ele.getMethodName());
+		}
+		
+		return null;
 	}
 }
