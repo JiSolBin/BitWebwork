@@ -7,6 +7,7 @@ import org.apache.log4j.Logger;
 import com.bit.util.Mysql;
 
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -39,5 +40,23 @@ public class EmpDao {
 		}
 		
 		return list;
+	}
+
+	public void insertOne(int empno, String ename, int sal) {
+		
+		String sql = "insert into emp (empno, ename, sal, hiredate) values (?,?,?,now())";
+		try(
+				Connection connection = Mysql.getConnection();
+				PreparedStatement pstmt = connection.prepareStatement(sql);
+		){
+			// 치환할 것을 던져줌
+			pstmt.setInt(1, empno);
+			pstmt.setString(2, ename);
+			pstmt.setInt(3, sal);
+			
+			pstmt.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
 	}
 }

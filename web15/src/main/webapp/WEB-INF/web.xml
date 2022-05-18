@@ -23,4 +23,13 @@
   	<servlet-name>empList</servlet-name>
   	<url-pattern>/emp/list.html</url-pattern>
   </servlet-mapping>
+  
+  <servlet>
+  	<servlet-name>addEmp</servlet-name>
+  	<servlet-class>com.bit.controller.EmpAddController</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>addEmp</servlet-name>
+  	<url-pattern>/emp/add.html</url-pattern>
+  </servlet-mapping>
 </web-app>
