@@ -52,7 +52,7 @@
     	<div class="col-md-12">
 			
 			<div class="page-header">
-			  <h2>EMP Detail Page <small>상세보기</small></h2>
+			  <h2>EMP Edit Page <small>수정페이지</small></h2>
 			</div>
 			<%
 			com.bit.model.EmpDto bean = (com.bit.model.EmpDto)request.getAttribute("emp");
@@ -64,22 +64,22 @@
 			  </div>
 			  <div class="form-group">
 			    <label for="ename">ename</label>
-			    <input type="text" class="form-control" value="<%=bean.getEname() %>" id="ename" name="ename" placeholder="ename" readonly>
+			    <input type="text" class="form-control" value="<%=bean.getEname() %>" id="ename" name="ename" placeholder="ename">
 			  </div>
 			  <div class="form-group">
 			    <label for="sal">sal</label>
-			    <input type="text" class="form-control" value="<%=bean.getSal() %>" id="sal" name="sal" placeholder="sal" readonly>
+			    <input type="text" class="form-control" value="<%=bean.getSal() %>" id="sal" name="sal" placeholder="sal">
 			  </div>
 			  <div class="form-group">
 			    <label for="hiredate">hiredate</label>
-			    <input type="text" class="form-control" value="<%=bean.getHiredate() %>" id="hiredate" name="hiredate" placeholder="hiredate" readonly>
+			    <input type="datetime" class="form-control" value="<%=bean.getHiredate() %>" id="hiredate" name="hiredate" placeholder="hiredate">
 			  </div>
 			  <div class="form-group">
 			    <label for="job">job</label>
-			    <input type="text" class="form-control" value="<%=bean.getJob() %>" id="job" name="job" placeholder="job" readonly>
+			    <input type="text" class="form-control" value="<%=bean.getJob() %>" id="job" name="job" placeholder="job">
 			  </div>
-			  <a href="edit.html?idx=<%=bean.getEmpno() %>" role="button" class="btn btn-primary btn-block">수정</a>
-			  <a href="delete.html?idx=<%=bean.getEmpno() %>" role="button" class="btn btn-danger btn-block">삭제</a>
+			  <button type="submit" class="btn btn-primary btn-block">수정</button>
+			  <button type="reset" class="btn btn-default btn-block">취소</button>
 			  <button type="button" class="btn btn-default btn-block">뒤로</button>
 			</form>
 			

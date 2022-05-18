@@ -11,6 +11,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.sql.Timestamp;
 import java.util.ArrayList;
 
 public class EmpDao {
@@ -87,5 +88,26 @@ public class EmpDao {
 		}
 		
 		return null;
+	}
+
+	public int updateOne(int empno, String ename, int sal, String job, Timestamp hiredate) {
+		
+		String sql = "update emp set ename=?, sal=?, job=?, hiredate=? where empno=?";
+		try(
+				Connection connection = Mysql.getConnection();
+				PreparedStatement pstmt = connection.prepareStatement(sql);
+		){
+			// 치환할 것을 던져줌
+			pstmt.setString(1, ename);
+			pstmt.setInt(2, sal);
+			pstmt.setString(3, job);
+			pstmt.setTimestamp(4, hiredate);
+			pstmt.setInt(5, empno);
+			pstmt.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		return 0;
 	}
 }
