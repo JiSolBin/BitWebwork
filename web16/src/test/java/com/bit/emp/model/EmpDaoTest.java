@@ -5,16 +5,30 @@ import static org.junit.Assert.*;
 import java.sql.SQLException;
 
 import org.apache.log4j.Logger;
+import org.junit.BeforeClass;
+import org.junit.FixMethodOrder;
 import org.junit.Test;
+import org.junit.runners.MethodSorters;
 
 import com.bit.util.Mysql;
 
+@FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class EmpDaoTest {
 	
 	Logger logger = Logger.getLogger(EmpDaoTest.class);
+	static EmpDto target;
+	
+	@BeforeClass
+	public static void setUpBeforeClass() throws Exception {
+		
+		target = new EmpDto();
+		target.setEmpno(9999);	
+		target.setEname("test9999");
+		target.setSal(10000);	
+	}
 
 	@Test
-	public void testGetList() throws SQLException {
+	public void test1GetList() throws SQLException {
 
 		EmpDao dao = new EmpDao();
 		assertNotNull(dao.getList());
@@ -25,50 +39,36 @@ public class EmpDaoTest {
 	}
 	
 	@Test
-	public void testGetOne() throws SQLException {
+	public void test4GetOne() throws SQLException {
 		
 		EmpDao dao = new EmpDao();
-		assertNull(dao.getOne(99999));
-		assertNotNull(dao.getOne(1112));
-		assertEquals("test", dao.getOne(1112).getEname());
-		assertTrue(500 == dao.getOne(1112).getSal());
+		assertNotNull(dao.getOne(target.getEmpno()));
+		assertEquals(target.getEname(), dao.getOne(target.getEmpno()).getEname());
+		assertTrue(target.getSal() == dao.getOne(target.getEmpno()).getSal());
 	}
 
 	@Test
-	public void testInsertOne() throws SQLException {
+	public void test2InsertOne() throws SQLException {
 
-		EmpDto target = new EmpDto();
-		target.setEmpno(8888);
-		target.setEname("test");
-		target.setSal(500);
-		
-		Mysql.getConnection().setAutoCommit(false);
 		EmpDao dao = new EmpDao();
 		assertTrue(dao.insertOne(target));
 	}
 
 	@Test
-	public void testUpdateOne() throws SQLException {
+	public void test3UpdateOne() throws SQLException {
 
-		EmpDto target = new EmpDto();
-		target.setEmpno(1119);
-		target.setEname("test22");
-		target.setSal(10000);
+		target.setEname("test8888");
+		target.setSal(8000);
 		
-		Mysql.getConnection().setAutoCommit(false);
 		EmpDao dao = new EmpDao();
 		assertTrue(dao.updateOne(target)>0);
-		assertEquals(target.getEname(), dao.getOne(target.getEmpno()).getEname());
-		assertEquals(target.getSal(), dao.getOne(target.getEmpno()).getSal());
 	}
 
 	@Test
-	public void testDeleteOne() throws SQLException {
+	public void test5DeleteOne() throws SQLException {
 
-		Mysql.getConnection().setAutoCommit(false);
 		EmpDao dao = new EmpDao();
-		assertTrue(dao.deleteOne(99939)>0);
-		// assertNull(dao.getOne(99939));
+		assertTrue(dao.deleteOne(target.getEmpno())>0);
 	}
 	
 }
