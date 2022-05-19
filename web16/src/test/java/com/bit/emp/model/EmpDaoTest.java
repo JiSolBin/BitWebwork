@@ -47,14 +47,28 @@ public class EmpDaoTest {
 		assertTrue(dao.insertOne(target));
 	}
 
-//	@Test
-//	public void testUpdateOne() {
-//		fail("Not yet implemented");
-//	}
-//
-//	@Test
-//	public void testDeleteOne() {
-//		fail("Not yet implemented");
-//	}
+	@Test
+	public void testUpdateOne() throws SQLException {
+
+		EmpDto target = new EmpDto();
+		target.setEmpno(1119);
+		target.setEname("test22");
+		target.setSal(10000);
+		
+		Mysql.getConnection().setAutoCommit(false);
+		EmpDao dao = new EmpDao();
+		assertTrue(dao.updateOne(target)>0);
+		assertEquals(target.getEname(), dao.getOne(target.getEmpno()).getEname());
+		assertEquals(target.getSal(), dao.getOne(target.getEmpno()).getSal());
+	}
+
+	@Test
+	public void testDeleteOne() throws SQLException {
+
+		Mysql.getConnection().setAutoCommit(false);
+		EmpDao dao = new EmpDao();
+		assertTrue(dao.deleteOne(99939)>0);
+		// assertNull(dao.getOne(99939));
+	}
 	
 }
