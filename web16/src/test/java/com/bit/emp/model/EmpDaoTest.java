@@ -24,16 +24,29 @@ public class EmpDaoTest {
 			logger.debug(bean);
 	}
 	
-//	@Test
-//	public void testGetOne() {
-//		fail("Not yet implemented");
-//	}
-//
-//	@Test
-//	public void testInsertOne() {
-//		fail("Not yet implemented");
-//	}
-//
+	@Test
+	public void testGetOne() throws SQLException {
+		
+		EmpDao dao = new EmpDao();
+		assertNull(dao.getOne(99999));
+		assertNotNull(dao.getOne(1112));
+		assertEquals("test", dao.getOne(1112).getEname());
+		assertTrue(500 == dao.getOne(1112).getSal());
+	}
+
+	@Test
+	public void testInsertOne() throws SQLException {
+
+		EmpDto target = new EmpDto();
+		target.setEmpno(8888);
+		target.setEname("test");
+		target.setSal(500);
+		
+		Mysql.getConnection().setAutoCommit(false);
+		EmpDao dao = new EmpDao();
+		assertTrue(dao.insertOne(target));
+	}
+
 //	@Test
 //	public void testUpdateOne() {
 //		fail("Not yet implemented");

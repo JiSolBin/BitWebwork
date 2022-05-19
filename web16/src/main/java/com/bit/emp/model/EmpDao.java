@@ -13,6 +13,12 @@ import com.bit.util.Mysql;
 
 public class EmpDao {
 	
+//	private boolean test;
+//	
+//	public void setTest(boolean test) {
+//		this.test = test;
+//	}
+	
 	private PreparedStatement pstmt;
 	private ResultSet rs;
 
@@ -44,8 +50,54 @@ public class EmpDao {
 		return list;
 	}
 	
-	public void getOne() {}
-	public void insertOne() {}
+	public EmpDto getOne(int num) throws SQLException {
+		
+		EmpDto bean = null;
+		String sql = "select * from emp where empno=?";
+		
+		try {
+			pstmt = Mysql.getConnection().prepareStatement(sql);
+			pstmt.setInt(1, num);
+			rs = pstmt.executeQuery();
+			if(rs.next()) {
+				bean=new EmpDto();
+				bean.setDeptno(rs.getInt("deptno"));
+				bean.setEmpno(rs.getInt("empno"));
+				bean.setEname(rs.getString("ename"));
+				bean.setHiredate(rs.getDate("hiredate"));
+				bean.setJob(rs.getString("job"));
+				bean.setSal(rs.getInt("sal"));
+			}
+		}finally {
+			if(rs!=null) rs.close();
+			if(pstmt!=null) pstmt.close();
+			if(Mysql.getConnection()!=null) Mysql.getConnection().close();
+		}
+		
+		return bean;
+	}
+	
+	public boolean insertOne(EmpDto bean) throws SQLException {
+		
+		String sql = "insert into emp (empno, ename, sal, hiredate) values (?,?,?,now())";
+		try {
+			pstmt = Mysql.getConnection().prepareStatement(sql);
+			pstmt.setInt(1, bean.getEmpno());
+			pstmt.setString(2, bean.getEname());
+			pstmt.setInt(3, bean.getSal());
+			return pstmt.executeUpdate()>0;
+		} finally {
+			// 계속 insert test 가능하도록 추가한 코드 (mySQL은 필요 없음)
+			// 다른 DB일 경우 setAutoCommit(false) 해줘도 commit 하므로
+			// 이런식으로 변수 사용하여 rollback 시켜줘야 함
+			// if(test) Mysql.getConnection().rollback();
+			// else Mysql.getConnection().commit();
+			
+			if(pstmt!=null) pstmt.close();
+			if(Mysql.getConnection()!=null) Mysql.getConnection().close();
+		}
+	}
+	
 	public void updateOne() {}
 	public void deleteOne() {}
 }
