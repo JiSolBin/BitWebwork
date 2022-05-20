@@ -33,7 +33,9 @@ $(function(){
 			});
 		}
 	});
-	// null이 아닐 땐 (=sal에 문자 넣어서 다시 돌아왔을 때)
+	
+	// null이 아닐 땐 (=sal에 문자 넣어서 다시 돌아왔을 때) 다시 수정 상태로
+	// -> 근데 제대로 입력해도 수정 상태로 돌아옴
 	if('<%=request.getParameter("sal")%>'!='null'){
 		$('button[type="submit"]').click();
 	}
@@ -79,7 +81,7 @@ $(function(){
 	  <!--  -->
 	  <jsp:useBean id="bean" class="com.bit.emp.model.EmpDto" scope="request"></jsp:useBean>
 	  	<div class="page-header">
-		  <h1>상세 페이지 <small>EMP (<jsp:getProperty property="empno" name="bean"/>)</small></h1>
+		  <h1>상세 페이지 <small>EMP (<%=request.getParameter("empno") %>)</small></h1>
 		</div>
 		<form class="form-horizontal" method="post">
 		  <div class="form-group">
@@ -91,7 +93,7 @@ $(function(){
 		  <div class="form-group">
 		    <label for="ename" class="col-sm-2 control-label">ename</label>
 		    <div class="col-sm-10">
-		      <input type="text" name="ename" class="form-control" id="ename" placeholder="ename" value="<%=request.getParameter("ename")==null?bean.getSal():request.getParameter("ename") %>">
+		      <input type="text" name="ename" class="form-control" id="ename" placeholder="ename" value="<%=request.getParameter("ename")==null?bean.getEname():request.getParameter("ename") %>">
 		    </div>
 		  </div>
 		  <div class="form-group">

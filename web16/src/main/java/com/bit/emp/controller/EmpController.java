@@ -48,6 +48,10 @@ public class EmpController extends HttpServlet {
 		} catch (NumberFormatException e) {
 			// validation
 			req.getRequestDispatcher("emp/detail.jsp").forward(req, resp);
+			
+			// java.lang.IllegalStateException: 응답이 이미 커밋된 후에는 forward할 수 없습니다.
+			// catch해서 포워딩 후 다시 doGet 해서 그럼
+			return;
 		}
 		
 		// 리스트로 감
