@@ -3,12 +3,18 @@ package com.bit.model;
 import java.util.*;
 import java.util.Map.*;
 
+import org.bson.BsonDocument;
 import org.bson.Document;
+import org.bson.conversions.Bson;
+import org.bson.types.ObjectId;
 
+import com.mongodb.BasicDBObject;
 import com.mongodb.MongoClient;
+import com.mongodb.ServerAddress;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoCursor;
 import com.mongodb.client.MongoDatabase;
+import com.mongodb.client.model.Filters;
 
 public class EmpDao {
 	String addr = "localhost:27017";
@@ -81,6 +87,44 @@ public class EmpDao {
 			coll.insertOne(doc );
 		} finally {
 			if(client!=null) client.close();
+		}
+	}
+
+	public EmpDto selectOne(String idx) {
+
+		try {
+			client = new MongoClient(addr);
+			MongoDatabase db = client.getDatabase("testDB");
+			MongoCollection<Document> coll = db.getCollection("emp");
+			
+			Bson filter = new BasicDBObject("_id", new ObjectId(idx));
+			Document doc = coll.find(filter).first();
+			EmpDto bean = new EmpDto();
+			bean.setId(doc.getObjectId("_id"));
+			bean.setEmpno(Integer.parseInt(doc.get("empno").toString()));
+			bean.setEname(doc.getString("ename"));
+			bean.setItems(doc.getList("item", String.class));
+			
+			return bean;
+		} finally {
+			if(client!=null) client.close();
+		}
+	}
+
+	public void updateOne(Map<String, String[]> params) {
+		
+		try(MongoClient client = new MongoClient(new ServerAddress("localhost", 27017))){
+			MongoDatabase db = client.getDatabase("testDB");
+			MongoCollection<Document> coll = db.getCollection("emp");
+			
+			Bson filter = new BasicDBObject("_id", new ObjectId(params.get("_id")[0]));
+			BasicDBObject update2=new BasicDBObject();
+			BasicDBObject update3=new BasicDBObject();
+			update3.append("empno", params.get("empno")[0]);
+			update3.append("ename", params.get("ename")[0]);
+			update3.append("item", params.get("item"));
+			update2.append("$set", update3);
+			coll.updateOne(filter, update2);
 		}
 	}
 	

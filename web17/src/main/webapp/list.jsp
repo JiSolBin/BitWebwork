@@ -1,3 +1,4 @@
+<%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -27,7 +28,15 @@
   <%for(com.bit.model.EmpDto bean:(java.util.List<com.bit.model.EmpDto>)request.getAttribute("list")){ %>
   <a href="detail.html?idx=<%=bean.getId() %>" class="list-group-item">
     <h4 class="list-group-item-heading"><%=bean.getEname() %> (<%=bean.getEmpno() %>)</h4>
-    <p class="list-group-item-text"><%=bean.getItems()%></p>
+    	<%
+    	if(bean.getItems()!=null){
+    		for(String item: (List<String>)bean.getItems()){
+    	%>
+    	<p class="list-group-item-text"><%=item %></p>
+    	<%
+    		}
+    	}
+    	%>
   </a>
   <%} %>
 </div>
