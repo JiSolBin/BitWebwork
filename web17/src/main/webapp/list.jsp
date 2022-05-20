@@ -24,10 +24,10 @@
     <h4 class="list-group-item-heading">ENAME</h4>
     <p class="list-group-item-text">EMPNO</p>
   </span>
-  <%for(java.util.Map<String, Object> bean:(java.util.List<java.util.Map<String, Object>>)request.getAttribute("list")){ %>
-  <a href="detail.html?idx=<%=bean.get("_id") %>" class="list-group-item">
-    <h4 class="list-group-item-heading"><%=bean.get("ename") %></h4>
-    <p class="list-group-item-text"><%=bean.get("empno") %></p>
+  <%for(com.bit.model.EmpDto bean:(java.util.List<com.bit.model.EmpDto>)request.getAttribute("list")){ %>
+  <a href="detail.html?idx=<%=bean.getId() %>" class="list-group-item">
+    <h4 class="list-group-item-heading"><%=bean.getEname() %> (<%=bean.getEmpno() %>)</h4>
+    <p class="list-group-item-text"><%=bean.getItems()%></p>
   </a>
   <%} %>
 </div>

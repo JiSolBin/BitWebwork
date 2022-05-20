@@ -1,14 +1,10 @@
 package com.bit.model;
 
-import java.security.interfaces.RSAKey;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
+import java.util.Map.*;
 
 import org.bson.Document;
 
-import com.mongodb.BasicDBObject;
 import com.mongodb.MongoClient;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoCursor;
@@ -18,20 +14,44 @@ public class EmpDao {
 	String addr = "localhost:27017";
 	MongoClient client = null;
 	
-	public List<Map<String, Object>> selectAll(){
+//	public List<Map<String, Object>> selectAll(){
+//		
+//		List<Map<String, Object>> list = new ArrayList<>();
+//		try {
+//			client = new MongoClient(addr);
+//			MongoDatabase db = client.getDatabase("testDB");
+//			MongoCollection<Document> rs = db.getCollection("emp");
+//			MongoCursor<Document> cur = rs.find().iterator();
+//			while(cur.hasNext()) {
+//				Map<String, Object> bean = new HashMap<String, Object>();
+//				Document doc = cur.next();
+//				bean.put("_id", doc.get("_id"));
+//				bean.put("empno", doc.get("empno"));
+//				bean.put("ename", doc.get("ename"));
+//				list.add(bean);
+//			}
+//		} finally {
+//			if(client!=null) client.close();
+//		}
+//		
+//		return list;
+//	}
+	
+	public List<EmpDto> selectAll(){
 		
-		List<Map<String, Object>> list = new ArrayList<>();
+		List<EmpDto> list = new ArrayList<>();
 		try {
 			client = new MongoClient(addr);
 			MongoDatabase db = client.getDatabase("testDB");
 			MongoCollection<Document> rs = db.getCollection("emp");
 			MongoCursor<Document> cur = rs.find().iterator();
 			while(cur.hasNext()) {
-				Map<String, Object> bean = new HashMap<String, Object>();
+				EmpDto bean = new EmpDto();
 				Document doc = cur.next();
-				bean.put("_id", doc.get("_id"));
-				bean.put("empno", doc.get("empno"));
-				bean.put("ename", doc.get("ename"));
+				bean.setId(doc.getObjectId("_id"));
+				bean.setEmpno(Integer.parseInt(doc.get("empno").toString()));
+				bean.setEname(doc.getString("ename"));
+				bean.setItems(doc.getList("item", String.class));
 				list.add(bean);
 			}
 		} finally {
@@ -41,7 +61,7 @@ public class EmpDao {
 		return list;
 	}
 
-	public void insertOne(int empno, String ename) {
+	public void insertOne(Map<String, String[]> items) {
 		
 		try {
 			client = new MongoClient(addr);
@@ -49,8 +69,15 @@ public class EmpDao {
 			MongoCollection<Document> coll = db.getCollection("emp");
 			
 			Document doc = new Document();
-			doc.append("empno", empno);
-			doc.append("ename", ename);
+			Set<Entry<String, String[]>> entrys = items.entrySet();
+			Iterator<Entry<String, String[]>> ite = entrys.iterator();
+			while(ite.hasNext()) {
+				Entry<String, String[]> entry = ite.next();
+				if(entry.getKey().equals("item"))
+					doc.append(entry.getKey(), Arrays.asList(entry.getValue()));
+				else
+					doc.append(entry.getKey(), entry.getValue()[0]);
+			}
 			coll.insertOne(doc );
 		} finally {
 			if(client!=null) client.close();
