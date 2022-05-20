@@ -1,6 +1,8 @@
 package com.bit.controller;
 
+import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.Map;
 
 import javax.servlet.ServletException;
@@ -24,6 +26,7 @@ public class DetailController extends HttpServlet {
 		req.getRequestDispatcher("../detail.jsp").forward(req, resp);
 	}
 	
+	// 수정
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 	
@@ -33,5 +36,20 @@ public class DetailController extends HttpServlet {
 		dao.updateOne(params);
 		
 		doGet(req, resp);
+	}
+	
+	@Override
+	protected void doPut(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+
+		
+	}
+	
+	@Override
+	protected void doDelete(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		
+		BufferedReader br = new BufferedReader(new InputStreamReader(req.getInputStream()));
+		String msg = br.readLine();
+		EmpDao dao = new EmpDao();
+		dao.deleteOne(msg);
 	}
 }
