@@ -11,6 +11,8 @@ app.use(express.static(path.resolve(__dirname, '../public')));
 app.set('views', path.resolve(__dirname, '../views'));
 // view engine = ejs
 app.set('view engine', 'ejs');
+// json값 가져오기 (emp.ejs line 30)
+app.use(express.json());
 // post form 값 받아오기
 app.use(express.urlencoded({extended:false}));
 
@@ -58,20 +60,20 @@ app.post('/emp/add', function(req,res){
 
     var mysql = require('mysql');
 
-    var con = mysql.createConnection({
+    var conn = mysql.createConnection({
         host: "localhost",
         user: "user01",
         password: "1234",
         database: "scott"
     });
 
-    con.connect(function(err) {
+    conn.connect(function(err) {
         if (err) throw err;
         console.log("Connected!");
         // var sql = "INSERT INTO emp (empno, ename, sal, hiredate) VALUES ("+req.body.empno+",'"+req.body.ename+"',"+req.body.sal+",now())";
         // prepareStatement 사용 -> con.query에 배열 추가
         var sql = "insert into emp (empno, ename, sal, hiredate) values (?,?,?,now())";
-        con.query(sql, [req.body.empno, req.body.ename, req.body.sal], function (err, result) {
+        conn.query(sql, [req.body.empno, req.body.ename, req.body.sal], function (err, result) {
             if (err) {
                 res.render('empadd', {obj:req.body});
                 return; // 안해주면 css 안먹힘 -> why?
@@ -82,7 +84,72 @@ app.post('/emp/add', function(req,res){
     });
 });
 
+app.get('/emp/row', function(req, res){
+    var mysql = require('mysql');
 
+    var conn = mysql.createConnection({
+        host: "localhost",
+        user: "user01",
+        password: "1234",
+        database: "scott"
+    });
+
+    conn.connect(function(err) {
+        if (err) throw err;
+        console.log("Connected!");
+        conn.query('select empno as "empno", ename as "ename", sal as "sal" from emp where empno = ?', [parseInt(req.query.empno)], function (err, result) {
+            if (err) throw err;
+            console.log(result);
+            res.render("emp", {bean: result[0]});
+        });
+    });
+});
+
+app.post('/emp/row', function(req,res){
+    var mysql = require('mysql');
+
+    var conn = mysql.createConnection({
+        host: "localhost",
+        user: "user01",
+        password: "1234",
+        database: "scott"
+    });
+
+    conn.connect(function(err) {
+        if (err) throw err;
+        console.log("Connected!");
+        var sql = 'update emp set ename=?, sal=? where empno=?';
+        conn.query(sql, [req.body.ename, req.body.sal, req.body.empno], function (err, result) {
+            if (err) throw err;
+            console.log(result);
+            res.redirect('list');
+        });
+    });
+});
+
+app.post('/emp/delete', function(req,res){
+    var mysql = require('mysql');
+
+    var conn = mysql.createConnection({
+      host: "localhost",
+      user: "user01",
+      password: "1234",
+      database: "scott"
+    });
+    
+    conn.connect(function(err) {
+      if (err) throw err;
+      var sql = "DELETE FROM emp WHERE empno = ?";
+      conn.query(sql, [req.body.empno], function (err, result) {
+        if (err) throw err;
+        console.log("Number of records deleted: " + result.affectedRows);
+        // 이전에도 이거 해주면 더 좋음!!
+        if(result.affectedRows>0) res.statusCode = 200;
+        else res.statusCode = 500;
+        res.end();
+      });
+    });
+});
 
 app.listen(3000, function(){
     console.log('server starting...');

@@ -56,9 +56,9 @@
       %>
         <tr>
           <!-- 어떻게 해도 ok -->
-          <td><%=ele['empno'.toUpperCase()] %></td>
-          <td><%=ele.ENAME %></td>
-          <td><%=ele.SAL %></td>
+          <td><a href="row?empno=<%=ele.EMPNO%>"><%=ele['empno'.toUpperCase()] %></a></td>
+          <td><a href="row?empno=<%=ele.EMPNO%>"><%=ele.ENAME %></a></td>
+          <td><a href="row?empno=<%=ele.EMPNO%>"><%=ele.SAL %></a></td>
         </tr>
       <%
       });
