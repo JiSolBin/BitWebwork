@@ -29,7 +29,7 @@ router.get('/list', function (req, res) {
         res.render('emplist', {arr: results, total: tot});
     });
 
-    conn.end();
+    conn.end(); // db연결과 쿼리문 실행이 따로 있어서 여기 있어도 end(close) 잘함
 });
 
 // 추가
@@ -52,6 +52,7 @@ router.post('/add', function(req,res){
             }
             console.log('insert', result);
             res.redirect('list');
+            conn.end();  // db연결과 쿼리문 실행이 같이 있어서 여기서 end 해줘야함 -> 비동기
         });
     });
 });
@@ -68,6 +69,7 @@ router.get('/row', function(req, res){
             if (err) throw err;
             console.log(result);
             res.render("emp", {bean: result[0]});
+            conn.end();
         });
     });
 });
@@ -85,6 +87,7 @@ router.post('/row', function(req,res){
             if (err) throw err;
             console.log(result);
             res.redirect('list');
+            conn.end();
         });
     });
 });
@@ -103,6 +106,7 @@ router.post('/delete', function(req,res){
         if(result.affectedRows>0) res.statusCode = 200;
         else res.statusCode = 500;
         res.end();
+        conn.end();
       });
     });
 });
