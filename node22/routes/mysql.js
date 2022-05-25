@@ -2,6 +2,7 @@ let express = require('express');
 let router = express.Router();
 let pool = require('../modules/mysql');
 
+// 리스트
 router.get('/', function(req,res){
     pool.query('SELECT * from emp', function (error, results, fields) {
         if (error) throw error;
@@ -13,6 +14,7 @@ router.get('/', function(req,res){
     });
 });
 
+// 추가
 router.post('/', function(req,res){
     // pool.query('insert into emp (empno, ename, sal) values (?,?,?)'
     //     ,[req.body.empno, req.body.ename, req.body.sal]
@@ -41,6 +43,26 @@ router.post('/', function(req,res){
             );
         });
     });
+});
+
+// 상세보기
+router.get('/:empno', function(req, res){
+    let empno = parseInt(req.params.empno);
+    
+    pool.query('select * from emp where empno=?', [empno], function(err, result){
+        res.render('mysql/emp', {bean:result[0]});
+    });
+});
+
+// 수정
+router.put('/:empno', function(req, res){
+    pool.query('update emp set ename=?, sal=? where empno=?'
+        , [req.body.ename, parseInt(req.body.sal), parseInt(req.body.empno)]
+        , function(err, result){
+            if(err) throw err;
+            res.redirect('./');
+        }
+    );
 });
 
 module.exports = router;
