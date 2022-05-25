@@ -51,10 +51,18 @@
 
         init();
         
-        $('form').one('submit', function(e){
+        var edit = function(e){
             $('form button').eq(1).toggle().next().toggle().next().click(init);
             $('form').find('input').removeProp('readonly').first().prop('readonly', true);
             return false;
+        };
+
+        $('form').one('submit', edit);
+
+        $('form button').eq(1).click(function(e){
+            $('form').off('submit', edit);
+            $('form input').first().val('delete');
+            $('form').submit();
         });
     </script>
 

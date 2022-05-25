@@ -65,4 +65,14 @@ router.put('/:empno', function(req, res){
     );
 });
 
+// 삭제
+router.delete('/:empno', function(req,res){
+    pool.query('delete from emp where empno=?'
+        , [parseInt(req.params.empno)]
+        , function(err, result){
+            res.redirect('./');
+        }
+    );
+});
+
 module.exports = router;
