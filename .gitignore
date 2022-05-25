@@ -126,5 +126,4 @@ buildNumber.properties
 # End of https://www.toptal.com/developers/gitignore/api/java,eclipse,vagrant,maven
 
 /Servers/
-/node21/node_modules/
-/node21/package-lock.json
+node_modules/
